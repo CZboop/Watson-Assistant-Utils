@@ -1,7 +1,7 @@
 // return all nodes within an intent
 const sampleSkill = require('./data/data.json');
 
-class IntentNodeFinder {
+export default class IntentNodeFinder {
     constructor(skill, intentName, intentVar = null){
         this.skill = skill;
         this.intentName = intentName;
@@ -24,6 +24,7 @@ class IntentNodeFinder {
         // looping until no more children
         // TODO: is there a better way to do this?
         let currentLevelChildren = levelOneChildren;
+        // TODO: verify this with proper tests with more layered nodes/intents
         while (true) {
             let tempChildren = [];
             for (let child of currentLevelChildren) {
