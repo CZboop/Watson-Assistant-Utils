@@ -1,0 +1,23 @@
+{
+  "name": "watsonUtils",
+  "version": "1.0.0",
+  "description": "",
+  "main": "intentNodeFinder.js",
+  "scripts": {
+    "test": "jest"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/CZboop/Watson-Assistant-Utils.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/CZboop/Watson-Assistant-Utils/issues"
+  },
+  "homepage": "https://github.com/CZboop/Watson-Assistant-Utils#readme",
+  "devDependencies": {
+    "jest": "^29.4.2"
+  }
+}
