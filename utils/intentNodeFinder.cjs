@@ -24,7 +24,7 @@ class IntentNodeFinder {
             nodeArray.push(...levelOneChildrenNames);
             // looping until no more children
             // TODO: is there a better way to do this?
-            let currentLevelChildren = levelOneChildren;
+            let currentLevelChildren = levelOneChildrenNames;
             // TODO: verify this with proper tests with more layered nodes/intents
             while (true) {
                 let tempChildren = [];
@@ -36,7 +36,6 @@ class IntentNodeFinder {
                 if (tempChildren.length == 0) {
                     break;
                 }
-                console.log('multiple levels')
                 nodeArray.push(...tempChildren);
                 currentLevelChildren = tempChildren;
             }

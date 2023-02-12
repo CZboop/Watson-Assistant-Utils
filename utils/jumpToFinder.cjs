@@ -25,6 +25,7 @@ class JumpToFinder {
             const nodesInIntent = new IntentNodeFinder(this.skill, this.intent);
             const nodesJumpingToIntent = [];
             for (let node of nodesInIntent) {
+                console.log(this.findNodeJumpTos(node))
                 nodesJumpingToIntent.push(...this.findNodeJumpTos(node));
             }
             return nodesJumpingToIntent;
@@ -33,7 +34,9 @@ class JumpToFinder {
     }
     // not intended to be called directly but can be
     findNodeJumpTos (searchNode) {
-        const nodesThatJumpTo = this.skill.dialog_nodes.filter(node => node['next_step']['behavior'] == 'jump_to' && node['next_step']['dialog_node'] == searchNode);
+        const nodesThatJumpTo = this.skill.dialog_nodes.filter(node => (node['next_step']['behavior'] == 'jump_to') && (node['next_step']['dialog_node'] == searchNode));
+        
+        console.log(nodesThatJumpTo)
         return nodesThatJumpTo;
     }
 }

@@ -32,3 +32,48 @@ test('can handle nothing jumping to the node under test', () => {
           }]};
     expect(new JumpToFinder(testSkill, "handler_3_1501275087289").findNodeJumpTos()).toEqual([]);
 })
+
+test('can return single node jumping to the node under test', () => {
+    const testSkill = {"name": "test skill", "intents": [], "dialog_nodes": [
+        {
+            "type": "standard",
+            "title": "Provide location",
+            "output": {
+              "text": {
+                "values": [
+                  "We're located by Union Square on the corner of 13th and Broadway"
+                ],
+                "selection_policy": "sequential"
+              }
+            },
+            "parent": "Directions",
+            "metadata": {},
+            "next_step": {
+                "behavior": "jump_to",
+                "dialog_node": "node_123"
+            },
+            "conditions": "true",
+            "dialog_node": "node_3_1522439390442"
+          },
+          {
+            "type": "standard",
+            "title": "Provide location",
+            "output": {
+              "text": {
+                "values": [
+                  "We're located by Union Square on the corner of 13th and Broadway"
+                ],
+                "selection_policy": "sequential"
+              }
+            },
+            "parent": "Directions",
+            "metadata": {},
+            "next_step": {
+                "behavior": "jump_to",
+                "dialog_node": "node_3_1522439390442"
+            },
+            "conditions": "true",
+            "dialog_node": "node_123"
+          }]};
+    expect(new JumpToFinder(testSkill, "node_3_1522439390442").findNodeJumpTos()).toBe(["node_123"]);
+})
