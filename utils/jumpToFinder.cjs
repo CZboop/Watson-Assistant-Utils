@@ -1,5 +1,5 @@
 // return all places that jump to a node or intent
-import IntentNodeFinder from './intentNodeFinder.cjs';
+const IntentNodeFinder = require('./intentNodeFinder.cjs');
 
 class JumpToFinder {
     // TODO: what's the best way of being able to get for both node and intent
