@@ -15,29 +15,33 @@ class JumpToFinder {
     findJumpTos () {
         // if it's an intent, use intent node finder to find all nodes and run for each
         // else just find for the one node
-        if (this.intent != null && this.node != null){
+        if (this.intent && this.node){
             // if passed both intent and node, how to handle this? either give both or throw and error in the constructor?
         }
-        else if (this.node != null) {
+        else if (this.node) {
             return this.findNodeJumpTos(this.node);
         }
-        else if (this.intent != null) {
-            const nodesInIntent = new IntentNodeFinder(this.skill, this.intent);
+        else if (this.intent) {
+            let nodesInIntent = new IntentNodeFinder(this.skill, this.intent).findAllNodes();
             const nodesJumpingToIntent = [];
             for (let node of nodesInIntent) {
-                console.log(this.findNodeJumpTos(node))
-                nodesJumpingToIntent.push(...this.findNodeJumpTos(node));
+                let nodesJumping = this.findNodeJumpTos(node);
+                if (nodesJumping.length > 0){
+                    nodesJumpingToIntent.push(...nodesJumping);
+                }
             }
             return nodesJumpingToIntent;
         }
-
     }
     // not intended to be called directly but can be
     findNodeJumpTos (searchNode) {
         const nodesThatJumpTo = this.skill.dialog_nodes.filter(node => (node['next_step']['behavior'] == 'jump_to') && (node['next_step']['dialog_node'] == searchNode));
         
-        console.log(nodesThatJumpTo)
-        return nodesThatJumpTo;
+        return this.getNameFromNodes(nodesThatJumpTo);
+    }
+    // getting names from full node filter results
+    getNameFromNodes (nodeArray) {
+        return nodeArray.map(node => node.hasOwnProperty('dialog_node') ? node['dialog_node']: node['title']);
     }
 }
 

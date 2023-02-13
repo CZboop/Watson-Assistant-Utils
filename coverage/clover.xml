@@ -1,60 +1,64 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<coverage generated="1676276817467" clover="3.2.0">
-  <project timestamp="1676276817467" name="All files">
-    <metrics statements="63" coveredstatements="55" conditionals="44" coveredconditionals="28" methods="22" coveredmethods="22" elements="129" coveredelements="105" complexity="0" loc="63" ncloc="63" packages="1" files="3" classes="3"/>
+<coverage generated="1676322665929" clover="3.2.0">
+  <project timestamp="1676322665929" name="All files">
+    <metrics statements="67" coveredstatements="67" conditionals="48" coveredconditionals="37" methods="24" coveredmethods="24" elements="139" coveredelements="128" complexity="0" loc="67" ncloc="67" packages="1" files="3" classes="3"/>
     <file name="intentNodeFinder.cjs" path="C:\Users\zeina\Documents\codin\javascript\watsonUtils\utils\intentNodeFinder.cjs">
       <metrics statements="28" coveredstatements="28" conditionals="13" coveredconditionals="10" methods="7" coveredmethods="7"/>
       <line num="2" count="2" type="stmt"/>
-      <line num="6" count="4" type="stmt"/>
-      <line num="7" count="4" type="stmt"/>
-      <line num="8" count="4" type="stmt"/>
-      <line num="12" count="4" type="stmt"/>
-      <line num="16" count="4" type="stmt"/>
-      <line num="17" count="10" type="stmt"/>
-      <line num="19" count="4" type="cond" truecount="2" falsecount="0"/>
-      <line num="20" count="3" type="cond" truecount="1" falsecount="1"/>
-      <line num="21" count="3" type="stmt"/>
-      <line num="22" count="9" type="stmt"/>
-      <line num="23" count="4" type="cond" truecount="1" falsecount="1"/>
-      <line num="24" count="3" type="stmt"/>
-      <line num="27" count="3" type="stmt"/>
-      <line num="29" count="3" type="stmt"/>
-      <line num="30" count="4" type="stmt"/>
-      <line num="31" count="4" type="stmt"/>
+      <line num="6" count="6" type="stmt"/>
+      <line num="7" count="6" type="stmt"/>
+      <line num="8" count="6" type="stmt"/>
+      <line num="12" count="6" type="stmt"/>
+      <line num="16" count="6" type="stmt"/>
+      <line num="17" count="14" type="stmt"/>
+      <line num="19" count="6" type="cond" truecount="2" falsecount="0"/>
+      <line num="20" count="5" type="cond" truecount="1" falsecount="1"/>
+      <line num="21" count="5" type="stmt"/>
+      <line num="22" count="13" type="stmt"/>
+      <line num="23" count="5" type="cond" truecount="1" falsecount="1"/>
+      <line num="24" count="5" type="stmt"/>
+      <line num="27" count="5" type="stmt"/>
+      <line num="29" count="5" type="stmt"/>
+      <line num="30" count="6" type="stmt"/>
+      <line num="31" count="6" type="stmt"/>
       <line num="32" count="26" type="stmt"/>
       <line num="33" count="6" type="cond" truecount="1" falsecount="1"/>
       <line num="34" count="6" type="stmt"/>
-      <line num="36" count="4" type="cond" truecount="2" falsecount="0"/>
-      <line num="37" count="3" type="stmt"/>
+      <line num="36" count="6" type="cond" truecount="2" falsecount="0"/>
+      <line num="37" count="5" type="stmt"/>
       <line num="39" count="1" type="stmt"/>
       <line num="40" count="1" type="stmt"/>
-      <line num="43" count="4" type="cond" truecount="2" falsecount="0"/>
+      <line num="43" count="6" type="cond" truecount="2" falsecount="0"/>
       <line num="44" count="1" type="stmt"/>
-      <line num="47" count="3" type="stmt"/>
+      <line num="47" count="5" type="stmt"/>
       <line num="54" count="2" type="stmt"/>
     </file>
     <file name="jumpToFinder.cjs" path="C:\Users\zeina\Documents\codin\javascript\watsonUtils\utils\jumpToFinder.cjs">
-      <metrics statements="20" coveredstatements="12" conditionals="16" coveredconditionals="8" methods="4" coveredmethods="4"/>
+      <metrics statements="24" coveredstatements="24" conditionals="20" coveredconditionals="17" methods="6" coveredmethods="6"/>
       <line num="2" count="1" type="stmt"/>
-      <line num="7" count="2" type="stmt"/>
-      <line num="8" count="2" type="stmt"/>
-      <line num="9" count="2" type="stmt"/>
-      <line num="10" count="2" type="cond" truecount="2" falsecount="2"/>
-      <line num="11" count="0" type="stmt"/>
-      <line num="18" count="1" type="cond" truecount="2" falsecount="2"/>
-      <line num="21" count="1" type="cond" truecount="1" falsecount="1"/>
+      <line num="7" count="6" type="stmt"/>
+      <line num="8" count="6" type="stmt"/>
+      <line num="9" count="6" type="stmt"/>
+      <line num="10" count="6" type="cond" truecount="4" falsecount="0"/>
+      <line num="11" count="2" type="stmt"/>
+      <line num="18" count="3" type="cond" truecount="3" falsecount="1"/>
+      <line num="21" count="3" type="cond" truecount="2" falsecount="0"/>
       <line num="22" count="1" type="stmt"/>
-      <line num="24" count="0" type="cond" truecount="0" falsecount="2"/>
-      <line num="25" count="0" type="stmt"/>
-      <line num="26" count="0" type="stmt"/>
-      <line num="27" count="0" type="stmt"/>
-      <line num="28" count="0" type="stmt"/>
-      <line num="29" count="0" type="stmt"/>
-      <line num="31" count="0" type="stmt"/>
-      <line num="37" count="3" type="cond" truecount="2" falsecount="0"/>
+      <line num="24" count="2" type="cond" truecount="1" falsecount="1"/>
+      <line num="25" count="2" type="stmt"/>
+      <line num="26" count="2" type="stmt"/>
+      <line num="28" count="2" type="stmt"/>
+      <line num="29" count="2" type="stmt"/>
+      <line num="30" count="2" type="stmt"/>
+      <line num="31" count="2" type="stmt"/>
+      <line num="33" count="2" type="stmt"/>
+      <line num="34" count="2" type="cond" truecount="2" falsecount="0"/>
+      <line num="35" count="1" type="stmt"/>
       <line num="39" count="2" type="stmt"/>
-      <line num="40" count="2" type="stmt"/>
-      <line num="44" count="1" type="stmt"/>
+      <line num="44" count="7" type="cond" truecount="2" falsecount="0"/>
+      <line num="47" count="4" type="stmt"/>
+      <line num="53" count="4" type="cond" truecount="1" falsecount="1"/>
+      <line num="57" count="1" type="stmt"/>
     </file>
     <file name="nodeIntentFinder.cjs" path="C:\Users\zeina\Documents\codin\javascript\watsonUtils\utils\nodeIntentFinder.cjs">
       <metrics statements="15" coveredstatements="15" conditionals="15" coveredconditionals="10" methods="11" coveredmethods="11"/>
