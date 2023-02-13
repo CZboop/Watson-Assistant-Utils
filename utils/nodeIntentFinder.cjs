@@ -16,14 +16,18 @@ class NodeIntentFinder {
             // TODO: decode the formatting before returning
             return startNode.conditions;
         }
-        let parentNodes = [startNode.parent];
+        let parentNodes = [startNode.parent].map(node => this.getNodeFromName(node));
         while (parentNodes.filter(elem => elem.hasOwnProperty('parent'))){
-            parentNodes = parentNodes.map(node => node.hasOwnProperty('parent') ? node['parent'] : null).filter(elem => elem != null);
-            let nodesWithTargetIntent = parentNodes.filter(node => node.conditions.startsWith(intentFormatted));
-            if (nodesWithTargetIntent){
+            let nodesWithTargetIntent = parentNodes.filter(node => node.hasOwnProperty('conditions') ? node.conditions.startsWith(intentFormatted) : null);
+            if (nodesWithTargetIntent.length > 0){
                 return nodesWithTargetIntent[0].conditions;
             }
+            parentNodes = parentNodes.map(node => node.hasOwnProperty('parent') ? node['parent'] : null).filter(elem => elem != null).map(node => this.getNodeFromName(node));
         }
+    }
+    // returning the full node from the name/reference to evaluate properties of parent nodes etc.
+    getNodeFromName(name) {
+        return this.skill.dialog_nodes.filter(node => node.hasOwnProperty('dialog_node') ? node['dialog_node'] == name: node['title'] == name)[0];
     }
 }
 

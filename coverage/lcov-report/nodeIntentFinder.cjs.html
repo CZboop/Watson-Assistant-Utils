@@ -23,30 +23,30 @@
         <div class='clearfix'>
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">47.36% </span>
+                <span class="strong">100% </span>
                 <span class="quiet">Statements</span>
-                <span class='fraction'>9/19</span>
+                <span class='fraction'>23/23</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">36.36% </span>
+                <span class="strong">66.66% </span>
                 <span class="quiet">Branches</span>
-                <span class='fraction'>4/11</span>
+                <span class='fraction'>10/15</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">42.85% </span>
+                <span class="strong">100% </span>
                 <span class="quiet">Functions</span>
-                <span class='fraction'>3/7</span>
+                <span class='fraction'>11/11</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">57.14% </span>
+                <span class="strong">100% </span>
                 <span class="quiet">Lines</span>
-                <span class='fraction'>8/14</span>
+                <span class='fraction'>15/15</span>
             </div>
         
             
@@ -61,7 +61,7 @@
             </div>
         </template>
     </div>
-    <div class='status-line low'></div>
+    <div class='status-line high'></div>
     <pre><table class="coverage">
 <tr><td class="line-count quiet"><a name='L1'></a><a href='#L1'>1</a>
 <a name='L2'></a><a href='#L2'>2</a>
@@ -92,32 +92,40 @@
 <a name='L27'></a><a href='#L27'>27</a>
 <a name='L28'></a><a href='#L28'>28</a>
 <a name='L29'></a><a href='#L29'>29</a>
-<a name='L30'></a><a href='#L30'>30</a></td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
+<a name='L30'></a><a href='#L30'>30</a>
+<a name='L31'></a><a href='#L31'>31</a>
+<a name='L32'></a><a href='#L32'>32</a>
+<a name='L33'></a><a href='#L33'>33</a>
+<a name='L34'></a><a href='#L34'>34</a></td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">3x</span>
+<span class="cline-any cline-yes">3x</span>
+<span class="cline-any cline-yes">3x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">3x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">11x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">3x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-yes">3x</span>
+<span class="cline-any cline-yes">3x</span>
+<span class="cline-any cline-yes">3x</span>
+<span class="cline-any cline-yes">2x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">15x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -135,18 +143,22 @@ class NodeIntentFinder {
         // go through parent nodes until find and intent in entry condition or no more parents
         const startNode = this.skill.dialog_nodes.filter(node =&gt; node.hasOwnProperty('dialog_node') ? node['dialog_node'] == this.node: <span class="branch-1 cbranch-no" title="branch not covered" >node['title'] == this.node)</span>[0];
         // TODO: handle list of conditions above
-        <span class="missing-if-branch" title="else path not taken" >E</span>if (startNode.conditions.startsWith(intentFormatted)) {
+        if (startNode.conditions.startsWith(intentFormatted)) {
             // TODO: decode the formatting before returning
             return startNode.conditions;
         }
-        let parentNodes = <span class="cstat-no" title="statement not covered" >[startNode.parent];</span>
-<span class="cstat-no" title="statement not covered" >        while (parentNodes.filter(<span class="fstat-no" title="function not covered" >el</span>em =&gt; <span class="cstat-no" title="statement not covered" >elem.hasOwnProperty('parent'))</span>){</span>
-<span class="cstat-no" title="statement not covered" >            parentNodes = parentNodes.map(<span class="fstat-no" title="function not covered" >no</span>de =&gt; <span class="cstat-no" title="statement not covered" >node.hasOwnProperty('parent') ? node['parent'] : null)</span>.filter(<span class="fstat-no" title="function not covered" >el</span>em =&gt; <span class="cstat-no" title="statement not covered" >elem != null)</span>;</span>
-            let nodesWithTargetIntent = <span class="cstat-no" title="statement not covered" >parentNodes.filter(<span class="fstat-no" title="function not covered" >no</span>de =&gt; <span class="cstat-no" title="statement not covered" >node.conditions.startsWith(intentFormatted))</span>;</span>
-<span class="cstat-no" title="statement not covered" >            if (nodesWithTargetIntent){</span>
-<span class="cstat-no" title="statement not covered" >                return nodesWithTargetIntent[0].conditions;</span>
+        let parentNodes = [startNode.parent].map(node =&gt; this.getNodeFromName(node));
+        while (parentNodes.filter(elem =&gt; elem.hasOwnProperty('parent'))){
+            let nodesWithTargetIntent = parentNodes.filter(node =&gt; node.hasOwnProperty('conditions') ? node.conditions.startsWith(intentFormatted) : <span class="branch-1 cbranch-no" title="branch not covered" >null)</span>;
+            if (nodesWithTargetIntent.length &gt; 0){
+                return nodesWithTargetIntent[0].conditions;
             }
+            parentNodes = parentNodes.map(node =&gt; node.hasOwnProperty('parent') ? node['parent'] : <span class="branch-1 cbranch-no" title="branch not covered" >null)</span>.filter(elem =&gt; elem != null).map(node =&gt; this.getNodeFromName(node));
         }
+    }
+    // returning the full node from the name/reference to evaluate properties of parent nodes etc.
+    getNodeFromName(name) {
+        return this.skill.dialog_nodes.filter(node =&gt; node.hasOwnProperty('dialog_node') ? node['dialog_node'] == name: <span class="branch-1 cbranch-no" title="branch not covered" >node['title'] == name)</span>[0];
     }
 }
 &nbsp;
@@ -157,7 +169,7 @@ module.exports = NodeIntentFinder;</pre></td></tr></table></pre>
             <div class='footer quiet pad2 space-top1 center small'>
                 Code coverage generated by
                 <a href="https://istanbul.js.org/" target="_blank" rel="noopener noreferrer">istanbul</a>
-                at 2023-02-12T21:13:02.013Z
+                at 2023-02-13T08:26:57.449Z
             </div>
         <script src="prettify.js"></script>
         <script>

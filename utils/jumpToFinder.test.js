@@ -75,5 +75,10 @@ test('can return single node jumping to the node under test', () => {
             "conditions": "true",
             "dialog_node": "node_123"
           }]};
-    expect(new JumpToFinder(testSkill, "node_3_1522439390442").findNodeJumpTos()).toBe(["node_123"]);
+    expect(new JumpToFinder(testSkill, "node_3_1522439390442").findJumpTos()).toBe(["node_123"]);
 })
+
+// test('', () => {
+
+//   expect().toBe();
+// })

@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<coverage generated="1676236382042" clover="3.2.0">
-  <project timestamp="1676236382042" name="All files">
-    <metrics statements="64" coveredstatements="47" conditionals="40" coveredconditionals="19" methods="18" coveredmethods="13" elements="122" coveredelements="79" complexity="0" loc="64" ncloc="64" packages="1" files="3" classes="3"/>
+<coverage generated="1676276817467" clover="3.2.0">
+  <project timestamp="1676276817467" name="All files">
+    <metrics statements="63" coveredstatements="55" conditionals="44" coveredconditionals="28" methods="22" coveredmethods="22" elements="129" coveredelements="105" complexity="0" loc="63" ncloc="63" packages="1" files="3" classes="3"/>
     <file name="intentNodeFinder.cjs" path="C:\Users\zeina\Documents\codin\javascript\watsonUtils\utils\intentNodeFinder.cjs">
-      <metrics statements="30" coveredstatements="30" conditionals="13" coveredconditionals="10" methods="7" coveredmethods="7"/>
+      <metrics statements="28" coveredstatements="28" conditionals="13" coveredconditionals="10" methods="7" coveredmethods="7"/>
       <line num="2" count="2" type="stmt"/>
       <line num="6" count="4" type="stmt"/>
       <line num="7" count="4" type="stmt"/>
@@ -21,31 +21,29 @@
       <line num="29" count="3" type="stmt"/>
       <line num="30" count="4" type="stmt"/>
       <line num="31" count="4" type="stmt"/>
-      <line num="32" count="6" type="stmt"/>
-      <line num="33" count="26" type="stmt"/>
-      <line num="34" count="6" type="cond" truecount="1" falsecount="1"/>
-      <line num="35" count="6" type="stmt"/>
-      <line num="37" count="4" type="cond" truecount="2" falsecount="0"/>
-      <line num="38" count="3" type="stmt"/>
+      <line num="32" count="26" type="stmt"/>
+      <line num="33" count="6" type="cond" truecount="1" falsecount="1"/>
+      <line num="34" count="6" type="stmt"/>
+      <line num="36" count="4" type="cond" truecount="2" falsecount="0"/>
+      <line num="37" count="3" type="stmt"/>
+      <line num="39" count="1" type="stmt"/>
       <line num="40" count="1" type="stmt"/>
-      <line num="41" count="1" type="stmt"/>
-      <line num="42" count="1" type="stmt"/>
-      <line num="45" count="4" type="cond" truecount="2" falsecount="0"/>
-      <line num="46" count="1" type="stmt"/>
-      <line num="49" count="3" type="stmt"/>
-      <line num="56" count="2" type="stmt"/>
+      <line num="43" count="4" type="cond" truecount="2" falsecount="0"/>
+      <line num="44" count="1" type="stmt"/>
+      <line num="47" count="3" type="stmt"/>
+      <line num="54" count="2" type="stmt"/>
     </file>
     <file name="jumpToFinder.cjs" path="C:\Users\zeina\Documents\codin\javascript\watsonUtils\utils\jumpToFinder.cjs">
-      <metrics statements="20" coveredstatements="9" conditionals="16" coveredconditionals="5" methods="4" coveredmethods="3"/>
+      <metrics statements="20" coveredstatements="12" conditionals="16" coveredconditionals="8" methods="4" coveredmethods="4"/>
       <line num="2" count="1" type="stmt"/>
       <line num="7" count="2" type="stmt"/>
       <line num="8" count="2" type="stmt"/>
       <line num="9" count="2" type="stmt"/>
       <line num="10" count="2" type="cond" truecount="2" falsecount="2"/>
       <line num="11" count="0" type="stmt"/>
-      <line num="18" count="0" type="cond" truecount="0" falsecount="4"/>
-      <line num="21" count="0" type="cond" truecount="0" falsecount="2"/>
-      <line num="22" count="0" type="stmt"/>
+      <line num="18" count="1" type="cond" truecount="2" falsecount="2"/>
+      <line num="21" count="1" type="cond" truecount="1" falsecount="1"/>
+      <line num="22" count="1" type="stmt"/>
       <line num="24" count="0" type="cond" truecount="0" falsecount="2"/>
       <line num="25" count="0" type="stmt"/>
       <line num="26" count="0" type="stmt"/>
@@ -59,21 +57,22 @@
       <line num="44" count="1" type="stmt"/>
     </file>
     <file name="nodeIntentFinder.cjs" path="C:\Users\zeina\Documents\codin\javascript\watsonUtils\utils\nodeIntentFinder.cjs">
-      <metrics statements="14" coveredstatements="8" conditionals="11" coveredconditionals="4" methods="7" coveredmethods="3"/>
-      <line num="5" count="1" type="stmt"/>
-      <line num="6" count="1" type="stmt"/>
-      <line num="7" count="1" type="stmt"/>
-      <line num="11" count="1" type="cond" truecount="1" falsecount="1"/>
-      <line num="13" count="1" type="cond" truecount="1" falsecount="1"/>
-      <line num="15" count="1" type="cond" truecount="1" falsecount="1"/>
+      <metrics statements="15" coveredstatements="15" conditionals="15" coveredconditionals="10" methods="11" coveredmethods="11"/>
+      <line num="5" count="3" type="stmt"/>
+      <line num="6" count="3" type="stmt"/>
+      <line num="7" count="3" type="stmt"/>
+      <line num="11" count="3" type="cond" truecount="1" falsecount="1"/>
+      <line num="13" count="11" type="cond" truecount="1" falsecount="1"/>
+      <line num="15" count="3" type="cond" truecount="2" falsecount="0"/>
       <line num="17" count="1" type="stmt"/>
-      <line num="19" count="0" type="stmt"/>
-      <line num="20" count="0" type="stmt"/>
-      <line num="21" count="0" type="cond" truecount="0" falsecount="2"/>
-      <line num="22" count="0" type="stmt"/>
-      <line num="23" count="0" type="cond" truecount="0" falsecount="2"/>
-      <line num="24" count="0" type="stmt"/>
-      <line num="30" count="1" type="stmt"/>
+      <line num="19" count="2" type="stmt"/>
+      <line num="20" count="3" type="stmt"/>
+      <line num="21" count="3" type="cond" truecount="1" falsecount="1"/>
+      <line num="22" count="3" type="cond" truecount="2" falsecount="0"/>
+      <line num="23" count="2" type="stmt"/>
+      <line num="25" count="1" type="cond" truecount="1" falsecount="1"/>
+      <line num="30" count="15" type="cond" truecount="1" falsecount="1"/>
+      <line num="34" count="1" type="stmt"/>
     </file>
   </project>
 </coverage>
