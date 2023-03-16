@@ -20,5 +20,8 @@
   "homepage": "https://github.com/CZboop/Watson-Assistant-Utils#readme",
   "devDependencies": {
     "jest": "^29.4.2"
+  },
+  "dependencies": {
+    "ibm-watson": "^7.1.2"
   }
 }
