@@ -1,4 +1,4 @@
-const JumpToFinder = require('./jumpToFinder.cjs');
+const JumpToFinder = require('../utils/jumpToFinder.cjs');
 
 test('can handle nothing jumping to the node under test', () => {
     const testSkill = {"name": "test skill", "intents": [], "dialog_nodes": [

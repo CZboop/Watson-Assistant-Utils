@@ -1,4 +1,4 @@
-const nodeFinder = require('./intentNodeFinder.cjs');
+const nodeFinder = require('../utils/intentNodeFinder.cjs');
 
 test('can find the single node of an intent that has no child nodes', () => {
     const testSkill = {"name": "test skill", "intents": [], "dialog_nodes": [

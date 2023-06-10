@@ -1,0 +1,21 @@
+@import url('https://fonts.googleapis.com/css2?family=Gruppo&display=swap');
+body {
+  background: linear-gradient(-65deg, #7952ee, #99067e, #0061aa, #0098ac);
+	background-size: 400% 400%;
+	animation: backgroundDance 40s ease infinite;
+	height: 100vh;
+  color: whitesmoke;
+  font-family: 'Gruppo', sans-serif;;
+}
+
+@keyframes backgroundDance {
+	0% {
+		background-position: 0% 50%;
+	}
+	50% {
+		background-position: 100% 50%;
+	}
+	100% {
+		background-position: 0% 50%;
+	}
+}

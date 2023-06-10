@@ -1,5 +1,4 @@
 // return all nodes within an intent
-const sampleSkill = require('../data/data.json');
 
 class IntentNodeFinder {
     constructor(skill, intentName, intentVar = null){
@@ -48,7 +47,5 @@ class IntentNodeFinder {
         }
     }
 }
-
-// console.log(new IntentNodeFinder(sampleSkill, 'Customer_Care_Store_Hours').findAllNodes())
 
 module.exports = IntentNodeFinder;
