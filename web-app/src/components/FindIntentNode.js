@@ -1,8 +1,11 @@
 import React from 'react';
+import FileUploader from './FileUploader';
 
 function FindIntentNode() {
   return (
-    <div>FindIntentNode</div>
+    <div>FindIntentNode
+        <FileUploader />
+    </div>
   )
 }
 
