@@ -5,8 +5,25 @@ import Home from './components/Home';
 import FindNodeIntent from './components/FindNodeIntent';
 import FindIntentNode from './components/FindIntentNode';
 import FindJumpTos from './components/FindJumpTos';
+import {useState, useEffect} from 'react';
 
 function App() {
+  // const [storedFile, setStoredFile] = useState(null);
+
+  // const getFileFromSessionStorage = () => {
+  //   const file = sessionStorage.getItem('file');
+  //   if (file!= undefined){
+  //     setStoredFile(file)
+  //     console.log("SESSION ITEM SET")
+  //   }
+    
+    
+  // }
+
+  // useEffect(() => {
+  //   getFileFromSessionStorage();
+  // }, [storedFile])
+
   return (
     <div className="App">
       <header className="App-header">
@@ -16,7 +33,7 @@ function App() {
           <Route index path='home' element={<Home/>}/>
           <Route path='' element={ <Navigate to="/home" /> }/>
           <Route path='find-intent' element={<FindNodeIntent/>}/>
-          <Route path='find-nodes' element={<FindIntentNode/>}/>
+          <Route path='find-nodes' element={<FindIntentNode />}/>
           <Route path='find-jumps' element={<FindJumpTos/>}/>
           <Route path='*' element={<Navigate to="/home" />}/> 
           </Routes>
