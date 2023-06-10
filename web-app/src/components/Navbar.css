@@ -1,0 +1,8 @@
+.Navbar {
+    padding: 1em;
+    display: flex;
+}
+a {
+    text-decoration: none;
+    color: whitesmoke;
+  }
