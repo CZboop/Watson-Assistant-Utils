@@ -1,8 +1,29 @@
+@import url('https://fonts.googleapis.com/css2?family=Gruppo&display=swap');
 .Navbar {
+    margin: 0.7em;
+    margin-top: 2em;
     padding: 1em;
     display: flex;
+    align-items: center;
+    border: 2px solid whitesmoke;
+    box-shadow: inset 0 0 40px rgba(200, 116, 221, 0.5);
+    border-radius: 10px;
 }
 a {
     text-decoration: none;
     color: whitesmoke;
-  }
+}
+button {
+    background-color: transparent;
+    border: none;
+    color: white;
+    font-size: large;
+    font-weight: 1000;
+    font-family: 'Gruppo', sans-serif;
+}
+h1 {
+    padding-right: 1em;
+    padding-top: none;
+    padding-bottom: none;
+    margin: 0px;
+}
