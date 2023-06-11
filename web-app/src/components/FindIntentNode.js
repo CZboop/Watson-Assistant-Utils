@@ -11,6 +11,7 @@ function FindIntentNode() {
         )
     });
     const [intentName, setIntentName] = useState("");
+    const [nodeList, setNodeList] = useState([]);
 
     const handleIntentNameChange = (e) => {
         setIntentName(e.target.value);
@@ -20,7 +21,10 @@ function FindIntentNode() {
         e.preventDefault();
 
         const intentNodeFinder = new IntentNodeFinder(JSON.parse(storedSkill), intentName);
-        console.log(intentNodeFinder.findAllNodes())
+        const listOfNodes = intentNodeFinder.findAllNodes();
+        setNodeList(listOfNodes.map(node => {
+            return <li key={node}>{node}</li>
+        }));
     }
     
     useEffect(()=> {
@@ -35,9 +39,11 @@ function FindIntentNode() {
             :
             <div>
             <p>Skill stored: {JSON.parse(storedSkill).name}</p>
-            <form onSubmit={handleIntentSubmission} className="form-intent">
             
-            <p>Select the intent whose nodes you want to see:</p>
+            {
+                nodeList.length === 0 ?
+                <form onSubmit={handleIntentSubmission} className="form-intent">
+                <p>Select the intent whose nodes you want to see:</p>
             <div className="intent-options" value={intentName} onChange={handleIntentNameChange}>
                 <select>
                     <option >--~*'Select Intent'*~--</option>
@@ -46,6 +52,15 @@ function FindIntentNode() {
             </div>
             <input type="submit" value="Submit" className="submit-intent"/>
             </form>
+                :
+                <div>
+                <h4>Nodes in Intent - {intentName}</h4>
+                <ul>
+                    {nodeList}
+                </ul>
+                </div>
+
+            }
             <hr></hr>
             <button>Upload a different skill</button>
             {/* TODO make a button to change skill/upload a new file, potentially stored previous ones and be able to switch between */}
