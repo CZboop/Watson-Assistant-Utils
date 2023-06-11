@@ -37,7 +37,8 @@ function FindIntentNode() {
     }, [storedSkill, skillIntents, intentOptions])
 
   return (
-    <div className="FindIntentNode">
+    <div className="FindIntentNode PageContainer">
+        <h2>Intent Node Finder</h2>
         {
             !storedSkill?
             <FileUploader />

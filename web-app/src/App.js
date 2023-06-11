@@ -8,21 +8,6 @@ import FindJumpTos from './components/FindJumpTos';
 import {useState, useEffect} from 'react';
 
 function App() {
-  // const [storedFile, setStoredFile] = useState(null);
-
-  // const getFileFromSessionStorage = () => {
-  //   const file = sessionStorage.getItem('file');
-  //   if (file!= undefined){
-  //     setStoredFile(file)
-  //     console.log("SESSION ITEM SET")
-  //   }
-    
-    
-  // }
-
-  // useEffect(() => {
-  //   getFileFromSessionStorage();
-  // }, [storedFile])
 
   return (
     <div className="App">

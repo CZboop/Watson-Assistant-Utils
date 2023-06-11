@@ -20,3 +20,44 @@ body {
 		background-position: 0% 50%;
 	}
 }
+
+input[type=submit] {
+  background-color: transparent;
+  font-family: 'Gruppo', sans-serif;
+  color: whitesmoke;
+  border: 1px solid whitesmoke;
+  border-radius: 15px;
+  font-size: large;
+  font-weight: 600;
+  padding: 0.2em;
+  margin-top: 0.5em;
+  padding-left: 0.5em;
+  padding-right: 0.5em;
+  box-shadow: inset 0 0 40px rgba(200, 116, 221, 0.5);
+}
+
+input[type=submit]:hover {
+  background-color: rgba(255,255,255,0.5);
+  color: black;
+  box-shadow: none;
+  font-weight: 400;
+  cursor: pointer;
+}
+
+select {
+  border-radius: 10px;
+  padding: 0.4em;
+  font-family: 'Gruppo', sans-serif;
+  font-weight: 900;
+}
+
+.PageContainer {
+  border: 2px solid whitesmoke;
+  padding: 1em;
+  border-radius: 10px;
+  margin-top: 1.5em;
+}
+
+h2 {
+  margin-top: 0px;
+}

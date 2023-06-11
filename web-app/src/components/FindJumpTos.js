@@ -75,7 +75,8 @@ function FindJumpTos() {
     }, [storedSkill, skillNodes, nodeOptions])
 
   return (
-    <div className="FindJumpTos">
+    <div className="FindJumpTos PageContainer">
+        <h2>Jump-To Finder</h2>
         {
             !storedSkill?
             <FileUploader />
