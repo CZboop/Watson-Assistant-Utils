@@ -3,6 +3,7 @@ import FileUploader from './FileUploader';
 import NodeIntentFinder from '../utils/nodeIntentFinder.js';
 
 function FindNodeIntent() {
+    // TODO: change select dropdown to be a filtered search of nodes
     const [storedSkill, setStoredSkill] = useState(null);
     let skillNodes = (storedSkill === null || storedSkill === undefined) ? null :JSON.parse(storedSkill).dialog_nodes.map(node => node.dialog_node);
     let nodeOptions = !skillNodes ? null : skillNodes.map(node => {
