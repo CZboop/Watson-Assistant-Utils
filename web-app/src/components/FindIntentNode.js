@@ -26,6 +26,11 @@ function FindIntentNode() {
             return <li key={node}>{node}</li>
         }));
     }
+
+    const handleIntentSwitch = () => {
+        setIntentName("");
+        setNodeList([]);
+    }
     
     useEffect(()=> {
         setStoredSkill(sessionStorage.getItem('files'))
@@ -58,6 +63,7 @@ function FindIntentNode() {
                 <ul>
                     {nodeList}
                 </ul>
+                <button onClick={handleIntentSwitch} className="submit-button">Switch Intent</button>
                 </div>
 
             }
