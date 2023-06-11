@@ -4,6 +4,7 @@ import JumpToFinder from '../utils/jumpToFinder.js';
 import './FindJumpTos.css';
 
 function FindJumpTos() {
+    // TODO: convert node and intent options into own elements to centrally use across other components
     const [storedSkill, setStoredSkill] = useState(null);
     let skillNodes = (storedSkill === null || storedSkill === undefined) ? null :JSON.parse(storedSkill).dialog_nodes.map(node => node.dialog_node);
     let nodeOptions = !skillNodes ? null : skillNodes.map(node => {
@@ -38,11 +39,15 @@ function FindJumpTos() {
             const jumpToFinder = new JumpToFinder(JSON.parse(storedSkill), null, intentName);
             const jumpTosFound = jumpToFinder.findJumpTos();
             setJumpTos(jumpTosFound);
+            console.log(jumpTosFound);
         }
         else {
             const jumpToFinder = new JumpToFinder(JSON.parse(storedSkill), nodeName, null);
             const jumpTosFound = jumpToFinder.findJumpTos();
-            setJumpTos(jumpTosFound);
+            setJumpTos(jumpTosFound.map(jumpTo => {
+                return <li key={jumpTo}>{jumpTo}</li>
+            }));
+            console.log(jumpTosFound);
         }
     }
 
@@ -62,6 +67,7 @@ function FindJumpTos() {
     const handleSelectionSwitch = () => {
         setNodeName("");
         setIntentName("")
+        setJumpTos([])
     }
     
     useEffect(()=> {
@@ -117,8 +123,10 @@ function FindJumpTos() {
             </form>
                 :
                 <div>
-                <h4>Jump Tos - {nodeName}</h4>
-                <p>{jumpTos}</p>
+                <h4>Jump Tos - {nodeOrIntent == "node" ? nodeName : intentName}</h4>
+                <ul>
+                    {jumpTos}
+                </ul>
                 <button onClick={handleSelectionSwitch} className="submit-button">Switch Node/Intent</button>
                 </div>
 

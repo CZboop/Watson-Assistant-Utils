@@ -35,7 +35,7 @@ class JumpToFinder {
     }
     // not intended to be called directly but can be
     findNodeJumpTos (searchNode) {
-        const nodesThatJumpTo = this.skill.dialog_nodes.filter(node => (node['next_step']['behavior'] == 'jump_to') && (node['next_step']['dialog_node'] == searchNode));
+        const nodesThatJumpTo = this.skill.dialog_nodes.filter(node => node.hasOwnProperty('next_step')).filter(node => (node['next_step']['behavior'] == 'jump_to') && (node['next_step']['dialog_node'] == searchNode));
         
         return this.getNameFromNodes(nodesThatJumpTo);
     }

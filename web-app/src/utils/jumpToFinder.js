@@ -1,5 +1,5 @@
 // return all places that jump to a node or intent
-const IntentNodeFinder = require('./intentNodeFinder.js');
+import IntentNodeFinder from './intentNodeFinder.js';
 
 class JumpToFinder {
     // TODO: what's the best way of being able to get for both node and intent
@@ -35,7 +35,7 @@ class JumpToFinder {
     }
     // not intended to be called directly but can be
     findNodeJumpTos (searchNode) {
-        const nodesThatJumpTo = this.skill.dialog_nodes.filter(node => (node['next_step']['behavior'] == 'jump_to') && (node['next_step']['dialog_node'] == searchNode));
+        const nodesThatJumpTo = this.skill.dialog_nodes.filter(node => node.hasOwnProperty('next_step')).filter(node => {return (node['next_step']['behavior'] == 'jump_to') && (node['next_step']['dialog_node'] == searchNode)});
         
         return this.getNameFromNodes(nodesThatJumpTo);
     }

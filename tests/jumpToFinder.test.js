@@ -178,6 +178,134 @@ test('can return one node jumping to an intent under test', () => {
     expect(new JumpToFinder(testSkill, node = null, intent = "Directions").findJumpTos()).toEqual(["node_3_1522439390442"]);
   })
 
+  test('can return multiple nodes jumping to one intent under test', () => {
+    const testSkill = {"name": "test skill", "intents": [], "dialog_nodes": [
+        {
+            "type": "standard",
+            "title": "Provide location",
+            "output": {
+              "text": {
+                "values": [
+                  "We're located by Union Square on the corner of 13th and Broadway"
+                ],
+                "selection_policy": "sequential"
+              }
+            },
+            "parent": "Directions",
+            "metadata": {},
+            "next_step": {
+                "behavior": "jump_to",
+                "dialog_node": "node_123"
+            },
+            "conditions": "true",
+            "dialog_node": "node_3_1522439390442"
+          },
+          {
+            "type": "standard",
+            "title": "Provide location 2",
+            "output": {
+              "text": {}
+            },
+            "parent": "Directions",
+            "metadata": {},
+            "next_step": {
+                "behavior": "jump_to",
+                "dialog_node": "node_123"
+            },
+            "conditions": "true",
+            "dialog_node": "node_3_2222439390445"
+          },
+          {
+            "type": "standard",
+            "title": "Directions",
+            "output": {
+              "text": {
+                "values": [
+                  "We're located by Union Square on the corner of 13th and Broadway"
+                ],
+                "selection_policy": "sequential"
+              },
+              "next_step": {
+                  "behavior": "jump_to",
+                  "dialog_node": "node_123"
+              }
+            },
+            "parent": "Directions",
+            "metadata": {},
+            "next_step": {
+                "behavior": "jump_to",
+                "dialog_node": "node_3_1522439390442"
+            },
+            "conditions": "#Directions",
+            "dialog_node": "node_123"
+          }]};
+    expect(new JumpToFinder(testSkill, node = null, intent = "Directions").findJumpTos().sort()).toEqual(["node_3_1522439390442","node_3_2222439390445"].sort());
+  })
+
+  test('can return multiple nodes jumping to one node under test', () => {
+    const testSkill = {"name": "test skill", "intents": [], "dialog_nodes": [
+        {
+            "type": "standard",
+            "title": "Provide location",
+            "output": {
+              "text": {
+                "values": [
+                  "We're located by Union Square on the corner of 13th and Broadway"
+                ],
+                "selection_policy": "sequential"
+              }
+            },
+            "parent": "Directions",
+            "metadata": {},
+            "next_step": {
+                "behavior": "jump_to",
+                "dialog_node": "node_123"
+            },
+            "conditions": "true",
+            "dialog_node": "node_3_1522439390442"
+          },
+          {
+            "type": "standard",
+            "title": "Provide location 2",
+            "output": {
+              "text": {}
+            },
+            "parent": "Directions",
+            "metadata": {},
+            "next_step": {
+                "behavior": "jump_to",
+                "dialog_node": "node_123"
+            },
+            "conditions": "true",
+            "dialog_node": "node_3_2222439390445"
+          },
+          {
+            "type": "standard",
+            "title": "Directions",
+            "output": {
+              "text": {
+                "values": [
+                  "We're located by Union Square on the corner of 13th and Broadway"
+                ],
+                "selection_policy": "sequential"
+              },
+              "next_step": {
+                  "behavior": "jump_to",
+                  "dialog_node": "node_123"
+              }
+            },
+            "parent": "Directions",
+            "metadata": {},
+            "next_step": {
+                "behavior": "jump_to",
+                "dialog_node": "node_3_1522439390442"
+            },
+            "conditions": "#Directions",
+            "dialog_node": "node_123"
+          }]};
+    expect(new JumpToFinder(testSkill, node = "node_123", intent = null).findJumpTos().sort()).toEqual(["node_3_1522439390442","node_3_2222439390445"].sort());
+  })
+
 // test('', () => {
 
 //   expect().toBe();
