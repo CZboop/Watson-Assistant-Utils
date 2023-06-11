@@ -1,18 +1,26 @@
 import React, { useState, useEffect } from 'react';
 import FileUploader from './FileUploader';
-const nodeFinder = require('../utils/intentNodeFinder.cjs');
+import IntentNodeFinder from '../utils/intentNodeFinder.js';
 
 function FindIntentNode() {
     const [storedSkill, setStoredSkill] = useState(null);
-    let skillIntents = (storedSkill == null || storedSkill == undefined) ? null :JSON.parse(storedSkill).intents.map(intent => intent["intent"])
+    let skillIntents = (storedSkill === null || storedSkill === undefined) ? null :JSON.parse(storedSkill).intents.map(intent => intent["intent"])
     let intentOptions = !skillIntents ? null : skillIntents.map(intent => {
         return (
             <option value={intent} key={intent}>{intent}</option>
         )
     });
+    const [intentName, setIntentName] = useState("");
 
-    const handleIntentSelection = () => {
-        console.log("TODO")
+    const handleIntentNameChange = (e) => {
+        setIntentName(e.target.value);
+    }
+
+    const handleIntentSubmission = (e) => {
+        e.preventDefault();
+
+        const intentNodeFinder = new IntentNodeFinder(JSON.parse(storedSkill), intentName);
+        console.log(intentNodeFinder.findAllNodes())
     }
     
     useEffect(()=> {
@@ -27,13 +35,18 @@ function FindIntentNode() {
             :
             <div>
             <p>Skill stored: {JSON.parse(storedSkill).name}</p>
+            <form onSubmit={handleIntentSubmission} className="form-intent">
+            
             <p>Select the intent whose nodes you want to see:</p>
-            <div className="intent-options" >
+            <div className="intent-options" value={intentName} onChange={handleIntentNameChange}>
                 <select>
-                    <option value="">--~*'Select Intent'*~--</option>
+                    <option >--~*'Select Intent'*~--</option>
                     {intentOptions}
                 </select>
             </div>
+            <input type="submit" value="Submit" className="submit-intent"/>
+            </form>
+            <hr></hr>
             <button>Upload a different skill</button>
             {/* TODO make a button to change skill/upload a new file, potentially stored previous ones and be able to switch between */}
             </div>

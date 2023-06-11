@@ -48,4 +48,4 @@ class IntentNodeFinder {
     }
 }
 
-module.exports = IntentNodeFinder;
+export default IntentNodeFinder;
