@@ -28,6 +28,10 @@ function FindJumpTos() {
         setNodeName(e.target.value);
     }
 
+    const handleIntentNameChange = (e) => {
+        setIntentName(e.target.value);
+    }
+
     const handleFormSubmission = (e) => {
         e.preventDefault();
         if (nodeOrIntent == "intent"){
@@ -43,7 +47,6 @@ function FindJumpTos() {
     }
 
     const handleTypeToggle = (e) => {
-        console.log(e.target.checked)
         if (nodeOrIntent == "intent"){
             setIntentChecked(false)
             setNodeChecked(true)
@@ -54,7 +57,6 @@ function FindJumpTos() {
             setNodeChecked(false)
             setNodeOrIntent("intent");
         }
-        console.log(nodeOrIntent);
     }
 
     const handleSelectionSwitch = () => {
@@ -87,14 +89,31 @@ function FindJumpTos() {
                     </div>
 
                     <div id="out"></div>
-                <p>Select the node whose intent you want to see:</p>
-            <div className="node-options" value={nodeName} onChange={handleNodeNameChange}>
-                <select>
-                    <option >--~*'Select Node'*~--</option>
-                    {nodeOptions}
-                </select>
-            </div>
-            <input type="submit" value="Submit" className="submit-node"/>
+                    {
+                        nodeOrIntent === "node" ?
+                        <div>
+                        <p>Select the node whose jump-tos you want to see:</p>
+                        <div className="node-options" value={nodeName} onChange={handleNodeNameChange}>
+                            <select>
+                                <option >--~*'Select Node'*~--</option>
+                                {nodeOptions}
+                            </select>
+                        </div>
+                        <input type="submit" value="Submit" className="submit-node"/>
+                        </div>
+                        :
+                        <div>
+                        <p>Select the intent whose jump-tos you want to see:</p>
+                        <div className="node-options" value={nodeName} onChange={handleIntentNameChange}>
+                            <select>
+                                <option >--~*'Select Intent'*~--</option>
+                                {intentOptions}
+                            </select>
+                        </div>
+                        <input type="submit" value="Submit" className="submit-intent"/>
+                        </div>
+                    }
+                
             </form>
                 :
                 <div>
