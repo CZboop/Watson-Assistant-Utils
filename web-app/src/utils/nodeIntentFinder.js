@@ -31,4 +31,4 @@ class NodeIntentFinder {
     }
 }
 
-module.exports = NodeIntentFinder;
+export default NodeIntentFinder;
