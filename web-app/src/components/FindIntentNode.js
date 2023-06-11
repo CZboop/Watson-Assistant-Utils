@@ -39,13 +39,12 @@ function FindIntentNode() {
   return (
     <div className="FindIntentNode PageContainer">
         <h2>Intent Node Finder</h2>
+        <p>{storedSkill == null ? 'Please upload a JSON file of a Watson Assistant dialogue skill' : `Skill stored: ${JSON.parse(storedSkill).name}`}</p>
         {
             !storedSkill?
             <FileUploader />
             :
-            <div>
-            <p>Skill stored: {JSON.parse(storedSkill).name}</p>
-            
+            <div>            
             {
                 nodeList.length === 0 ?
                 <form onSubmit={handleIntentSubmission} className="form-intent">

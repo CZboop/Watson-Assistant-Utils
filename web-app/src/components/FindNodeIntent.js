@@ -4,6 +4,7 @@ import NodeIntentFinder from '../utils/nodeIntentFinder.js';
 
 function FindNodeIntent() {
     // TODO: change select dropdown to be a filtered search of nodes
+    // TODO: catch exception/handle where no intent found
     const [storedSkill, setStoredSkill] = useState(null);
     let skillNodes = (storedSkill === null || storedSkill === undefined) ? null :JSON.parse(storedSkill).dialog_nodes.map(node => node.dialog_node);
     let nodeOptions = !skillNodes ? null : skillNodes.map(node => {
