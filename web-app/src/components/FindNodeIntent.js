@@ -21,10 +21,14 @@ function FindNodeIntent() {
 
     const handleNodeSubmission = (e) => {
         e.preventDefault();
-
-        const nodeIntentFinder = new NodeIntentFinder(JSON.parse(storedSkill), nodeName);
-        const intentOfNode = nodeIntentFinder.getIntent();
-        setNodeIntent(intentOfNode);
+        if (nodeName == "") {
+            alert("Please select a node!")
+        }
+        else {
+            const nodeIntentFinder = new NodeIntentFinder(JSON.parse(storedSkill), nodeName);
+            const intentOfNode = nodeIntentFinder.getIntent();
+            setNodeIntent(intentOfNode);
+        }
     }
 
     const handleNodeSwitch = () => {

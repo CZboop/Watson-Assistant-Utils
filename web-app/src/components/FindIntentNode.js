@@ -19,12 +19,18 @@ function FindIntentNode() {
 
     const handleIntentSubmission = (e) => {
         e.preventDefault();
-
-        const intentNodeFinder = new IntentNodeFinder(JSON.parse(storedSkill), intentName);
-        const listOfNodes = intentNodeFinder.findAllNodes();
+        console.log(intentName)
+        if (intentName == ""){
+            alert("Please select an intent!")
+        }
+        else {
+            const intentNodeFinder = new IntentNodeFinder(JSON.parse(storedSkill), intentName);
+            const listOfNodes = intentNodeFinder.findAllNodes();
         setNodeList(listOfNodes.map(node => {
             return <li key={node}>{node}</li>
         }));
+        }
+        
     }
 
     const handleIntentSwitch = () => {

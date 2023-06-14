@@ -35,19 +35,24 @@ function FindJumpTos() {
 
     const handleFormSubmission = (e) => {
         e.preventDefault();
-        if (nodeOrIntent == "intent"){
-            const jumpToFinder = new JumpToFinder(JSON.parse(storedSkill), null, intentName);
-            const jumpTosFound = jumpToFinder.findJumpTos();
-            setJumpTos(jumpTosFound);
-            console.log(jumpTosFound);
+        if ((nodeName == "" && nodeOrIntent == "node") || (intentName == "" && nodeOrIntent == "intent")) {
+            alert(nodeOrIntent == "node" ? "Please select a node!" : "Please select an intent!")
         }
         else {
-            const jumpToFinder = new JumpToFinder(JSON.parse(storedSkill), nodeName, null);
-            const jumpTosFound = jumpToFinder.findJumpTos();
-            setJumpTos(jumpTosFound.map(jumpTo => {
-                return <li key={jumpTo}>{jumpTo}</li>
-            }));
-            console.log(jumpTosFound);
+            if (nodeOrIntent == "intent"){
+                const jumpToFinder = new JumpToFinder(JSON.parse(storedSkill), null, intentName);
+                const jumpTosFound = jumpToFinder.findJumpTos();
+                setJumpTos(jumpTosFound);
+                console.log(jumpTosFound);
+            }
+            else {
+                const jumpToFinder = new JumpToFinder(JSON.parse(storedSkill), nodeName, null);
+                const jumpTosFound = jumpToFinder.findJumpTos();
+                setJumpTos(jumpTosFound.map(jumpTo => {
+                    return <li key={jumpTo}>{jumpTo}</li>
+                }));
+                console.log(jumpTosFound);
+            }
         }
     }
 
