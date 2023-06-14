@@ -77,13 +77,12 @@ function FindJumpTos() {
   return (
     <div className="FindJumpTos PageContainer">
         <h2>Jump-To Finder</h2>
+        <p>{storedSkill == null ? 'Please upload a JSON file of a Watson Assistant dialogue skill' : `Skill stored: ${JSON.parse(storedSkill).name}`}</p>
         {
             !storedSkill?
             <FileUploader />
             :
-            <div>
-            <p>Skill stored: {JSON.parse(storedSkill).name}</p>
-            
+            <div>            
             {
                 jumpTos.length == 0 ?
                 <form onSubmit={handleFormSubmission} className="form-intent">
