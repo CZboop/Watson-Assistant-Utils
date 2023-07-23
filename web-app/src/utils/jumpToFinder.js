@@ -41,7 +41,7 @@ class JumpToFinder {
     }
     // getting names from full node filter results
     getNameFromNodes (nodeArray) {
-        return nodeArray.map(node => node.hasOwnProperty('dialog_node') ? node['dialog_node']: node['title']);
+        return nodeArray.map(node => node.hasOwnProperty('dialog_node') ? node.hasOwnProperty('title')? node['dialog_node'] + " - " +  node["title"] : node['dialog_node'] : node['title']);
     }
 }
 

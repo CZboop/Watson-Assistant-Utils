@@ -16,10 +16,10 @@ class IntentNodeFinder {
         const rootNode = dialog_nodes.filter(node => node['conditions'] == `#${this.intentName}`)[0];
         // note all nodes have dialog_node property, getting title if not to compare against parent of other nodes
         if (rootNode){
-            const rootNodeName = rootNode.hasOwnProperty('dialog_node') ? rootNode['dialog_node']: rootNode['title'];
+            const rootNodeName = rootNode.hasOwnProperty('dialog_node') ? rootNode.hasOwnProperty('title')? rootNode['dialog_node'] + " - " +  rootNode["title"] : rootNode['dialog_node'] : rootNode['title'];
             nodeArray.push(rootNodeName);
             const levelOneChildren = dialog_nodes.filter(node => node.parent == rootNodeName);
-            const levelOneChildrenNames = levelOneChildren.map(node => node.hasOwnProperty('dialog_node') ? node['dialog_node']: node['title']);
+            const levelOneChildrenNames = levelOneChildren.map(node => node.hasOwnProperty('dialog_node') ? node.hasOwnProperty('title')? node['dialog_node'] + " - " +  node["title"] : node['dialog_node'] : node['title']);
             nodeArray.push(...levelOneChildrenNames);
             // looping until no more children
             // TODO: is there a better way to do this?

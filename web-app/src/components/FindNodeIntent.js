@@ -6,10 +6,10 @@ function FindNodeIntent() {
     // TODO: change select dropdown to be a filtered search of nodes
     // TODO: catch exception/handle where no intent found
     const [storedSkill, setStoredSkill] = useState(null);
-    let skillNodes = (storedSkill === null || storedSkill === undefined) ? null :JSON.parse(storedSkill).dialog_nodes.map(node => node.dialog_node);
+    let skillNodes = (storedSkill === null || storedSkill === undefined) ? null :JSON.parse(storedSkill).dialog_nodes.map(node => node);
     let nodeOptions = !skillNodes ? null : skillNodes.map(node => {
         return (
-            <option value={node} key={node}>{node}</option>
+            <option value={node.dialog_node} key={node.dialog_node}>{node.title}</option>
         )
     });
     const [nodeName, setNodeName] = useState("");
@@ -26,6 +26,8 @@ function FindNodeIntent() {
         }
         else {
             const nodeIntentFinder = new NodeIntentFinder(JSON.parse(storedSkill), nodeName);
+            // TODO: the main getIntent method does not work for slots or other types depending on their properties
+            // console.log(nodeName)
             const intentOfNode = nodeIntentFinder.getIntent();
             setNodeIntent(intentOfNode);
         }
@@ -60,7 +62,7 @@ function FindNodeIntent() {
                 <form onSubmit={handleNodeSubmission} className="form-intent">
                 <p>Select or start typing the node whose intent you want to see:</p>
             <div className="node-options" value={nodeName} onChange={handleNodeNameChange}>
-                <input list="optionData"/>
+                <input list="optionData" onChange={handleNodeNameChange}/>
                     <datalist id="optionData" >
                     {/* <option >--~*'Select Node'*~--</option> */}
                     {nodeOptions}

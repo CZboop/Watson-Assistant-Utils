@@ -43,7 +43,11 @@ function FindJumpTos() {
                 const jumpToFinder = new JumpToFinder(JSON.parse(storedSkill), null, intentName);
                 const jumpTosFound = jumpToFinder.findJumpTos();
                 setJumpTos(jumpTosFound);
-                console.log(jumpTosFound);
+                // console.log(jumpTosFound);
+                if (jumpTosFound.length == 0) {
+                    alert(`No nodes jumping to intent - ${intentName}!`);
+                }
+                setIntentName("");
             }
             else {
                 const jumpToFinder = new JumpToFinder(JSON.parse(storedSkill), nodeName, null);
@@ -51,7 +55,11 @@ function FindJumpTos() {
                 setJumpTos(jumpTosFound.map(jumpTo => {
                     return <li key={jumpTo}>{jumpTo}</li>
                 }));
-                console.log(jumpTosFound);
+                // console.log(jumpTosFound);
+                if (jumpTosFound.length == 0) {
+                    alert(`No nodes jumping to node - ${nodeName}!`);
+                }
+                setNodeName("");
             }
         }
     }
@@ -110,8 +118,8 @@ function FindJumpTos() {
                         nodeOrIntent === "node" ?
                         <div>
                         <p>Select or start typing the node whose jump-tos you want to see:</p>
-                        <div className="node-options" value={nodeName} onChange={handleNodeNameChange}>
-                            <input list="optionData"/>
+                        <div className="node-options" >
+                            <input list="optionData" value={nodeName} onChange={handleNodeNameChange}/>
                                 <datalist id="optionData" >
                                 {/* <option >--~*'Select Node'*~--</option> */}
                                 {nodeOptions}
@@ -122,8 +130,8 @@ function FindJumpTos() {
                         :
                         <div>
                         <p>Select or start typing the intent whose jump-tos you want to see:</p>
-                        <div className="node-options" value={nodeName} onChange={handleIntentNameChange}>
-                            <input list="optionData"/>
+                        <div className="node-options" >
+                            <input list="optionData" value={intentName} onChange={handleIntentNameChange}/>
                                 <datalist id="optionData" >
                                 {/* <option >--~*'Select Intent'*~--</option> */}
                                 {intentOptions}
