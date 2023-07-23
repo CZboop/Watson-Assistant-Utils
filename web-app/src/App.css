@@ -28,7 +28,7 @@ input[type=submit] {
   border: 1px solid whitesmoke;
   border-radius: 15px;
   font-size: large;
-  font-weight: 600;
+  font-weight: bold;
   padding: 0.2em;
   margin-top: 0.5em;
   padding-left: 0.5em;
@@ -37,10 +37,10 @@ input[type=submit] {
 }
 
 input[type=submit]:hover {
-  background-color: rgba(255,255,255,0.5);
-  color: black;
+  background-color: rgba(255, 255, 255, 0.342);
+  /* color: black; */
   box-shadow: none;
-  font-weight: 400;
+  /* font-weight: 400; */
   cursor: pointer;
 }
 
