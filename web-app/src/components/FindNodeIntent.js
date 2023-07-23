@@ -35,6 +35,12 @@ function FindNodeIntent() {
         setNodeName("");
         setNodeIntent("");
     }
+
+    const handleSkillSwitch = () => {
+        sessionStorage.removeItem('files');
+        setStoredSkill(null);
+        window.location.reload();
+    }
     
     useEffect(()=> {
         setStoredSkill(sessionStorage.getItem('files'))
@@ -70,8 +76,7 @@ function FindNodeIntent() {
 
             }
             <hr></hr>
-            <button>Upload a different skill</button>
-            {/* TODO make a button to change skill/upload a new file, potentially stored previous ones and be able to switch between */}
+            <button onClick={handleSkillSwitch}>Upload a different skill</button>
             </div>
         }
     </div>

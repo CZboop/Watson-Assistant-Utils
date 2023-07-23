@@ -16,6 +16,7 @@ button {
     background-color: transparent;
     border: none;
     color: white;
+    cursor: pointer;
     font-size: large;
     font-weight: 1000;
     font-family: 'Gruppo', sans-serif;
