@@ -60,12 +60,13 @@ function FindIntentNode() {
             {
                 nodeList.length === 0 ?
                 <form onSubmit={handleIntentSubmission} className="form-intent">
-                <p>Select the intent whose nodes you want to see:</p>
+                <p>Select or start typing the intent whose nodes you want to see:</p>
             <div className="intent-options" value={intentName} onChange={handleIntentNameChange}>
-                <select>
-                    <option >--~*'Select Intent'*~--</option>
+                <input list="optionData"/>
+                <datalist id="optionData" >
+                    {/* <option >--~*'Select Intent'*~--</option> */}
                     {intentOptions}
-                </select>
+                </datalist>
             </div>
             <input type="submit" value="Submit" className="submit-intent"/>
             </form>

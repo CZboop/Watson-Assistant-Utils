@@ -58,12 +58,13 @@ function FindNodeIntent() {
             {
                 nodeIntent === "" ?
                 <form onSubmit={handleNodeSubmission} className="form-intent">
-                <p>Select the node whose intent you want to see:</p>
+                <p>Select or start typing the node whose intent you want to see:</p>
             <div className="node-options" value={nodeName} onChange={handleNodeNameChange}>
-                <select>
-                    <option >--~*'Select Node'*~--</option>
+                <input list="optionData"/>
+                    <datalist id="optionData" >
+                    {/* <option >--~*'Select Node'*~--</option> */}
                     {nodeOptions}
-                </select>
+                    </datalist>
             </div>
             <input type="submit" value="Submit" className="submit-node"/>
             </form>

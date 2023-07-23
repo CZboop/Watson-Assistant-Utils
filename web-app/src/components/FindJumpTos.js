@@ -109,23 +109,25 @@ function FindJumpTos() {
                     {
                         nodeOrIntent === "node" ?
                         <div>
-                        <p>Select the node whose jump-tos you want to see:</p>
+                        <p>Select or start typing the node whose jump-tos you want to see:</p>
                         <div className="node-options" value={nodeName} onChange={handleNodeNameChange}>
-                            <select>
-                                <option >--~*'Select Node'*~--</option>
+                            <input list="optionData"/>
+                                <datalist id="optionData" >
+                                {/* <option >--~*'Select Node'*~--</option> */}
                                 {nodeOptions}
-                            </select>
+                                </datalist>
                         </div>
                         <input type="submit" value="Submit" className="submit-node"/>
                         </div>
                         :
                         <div>
-                        <p>Select the intent whose jump-tos you want to see:</p>
+                        <p>Select or start typing the intent whose jump-tos you want to see:</p>
                         <div className="node-options" value={nodeName} onChange={handleIntentNameChange}>
-                            <select>
-                                <option >--~*'Select Intent'*~--</option>
+                            <input list="optionData"/>
+                                <datalist id="optionData" >
+                                {/* <option >--~*'Select Intent'*~--</option> */}
                                 {intentOptions}
-                            </select>
+                                </datalist>
                         </div>
                         <input type="submit" value="Submit" className="submit-intent"/>
                         </div>
