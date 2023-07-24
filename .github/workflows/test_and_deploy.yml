@@ -6,6 +6,31 @@ on:
       - "main"
 
 jobs:
+
+  test_utils:
+    name: Testing Utils
+    runs-on: ubuntu-latest
+
+    strategy:
+      matrix:
+        node-version: [15.x]
+
+    steps:
+        - name: Run tests
+          run: cd web-app && cd src && cd utils && npm test
+
+  test_react:
+    name: Testing React App
+    runs-on: ubuntu-latest
+
+    strategy:
+      matrix:
+        node-version: [15.x]
+
+    steps:
+        - name: Run tests
+          run: cd web-app && cd src && npm test
+
   deploy_react:
     name: Deploy React app
     runs-on: ubuntu-latest

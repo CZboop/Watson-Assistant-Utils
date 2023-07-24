@@ -22,7 +22,7 @@ class JumpToFinder {
             return this.findNodeJumpTos(this.node);
         }
         else if (this.intent) {
-            let nodesInIntent = new IntentNodeFinder(this.skill, this.intent).findAllNodes();
+            let nodesInIntent = this.getIdsFromIdAndName(new IntentNodeFinder(this.skill, this.intent).findAllNodes());
             const nodesJumpingToIntent = [];
             for (let node of nodesInIntent) {
                 let nodesJumping = this.findNodeJumpTos(node);
@@ -42,6 +42,10 @@ class JumpToFinder {
     // getting names from full node filter results
     getNameFromNodes (nodeArray) {
         return nodeArray.map(node => node.hasOwnProperty('dialog_node') ? node.hasOwnProperty('title')? node['dialog_node'] + " - " +  node["title"] : node['dialog_node'] : node['title']);
+    }
+
+    getIdsFromIdAndName(nodeArray){
+        return nodeArray.map(node => node.split(" - ")[0]);
     }
 }
 

@@ -16,11 +16,11 @@ class IntentNodeFinder {
         const rootNode = dialog_nodes.filter(node => node['conditions'] == `#${this.intentName}`)[0];
         // note all nodes have dialog_node property, getting title if not to compare against parent of other nodes
         if (rootNode){
-            const rootNodeName = rootNode.hasOwnProperty('dialog_node') ? rootNode.hasOwnProperty('title')? rootNode['dialog_node'] + " - " +  rootNode["title"] : rootNode['dialog_node'] : rootNode['title'];
-            nodeArray.push(rootNodeName);
+            const rootNodeName = rootNode.hasOwnProperty('dialog_node') ? rootNode['dialog_node']: rootNode['title'];
+            nodeArray.push(rootNode);
             const levelOneChildren = dialog_nodes.filter(node => node.parent == rootNodeName);
-            const levelOneChildrenNames = levelOneChildren.map(node => node.hasOwnProperty('dialog_node') ? node.hasOwnProperty('title')? node['dialog_node'] + " - " +  node["title"] : node['dialog_node'] : node['title']);
-            nodeArray.push(...levelOneChildrenNames);
+            const levelOneChildrenNames = levelOneChildren.map(node => node.hasOwnProperty('dialog_node') ? node['dialog_node']: node['title']);
+            nodeArray.push(...levelOneChildren);
             // looping until no more children
             // TODO: is there a better way to do this?
             let currentLevelChildren = levelOneChildrenNames;
@@ -30,7 +30,7 @@ class IntentNodeFinder {
                 for (let child of currentLevelChildren) {
                     let currentLevelChildrenOfNode = dialog_nodes.filter(node => node.parent == child);
                     let currentLevelChildrenOfNodeNames = currentLevelChildrenOfNode.map(node => node.hasOwnProperty('dialog_node') ? node['dialog_node']: node['title']);
-                    tempChildren.push(...currentLevelChildrenOfNodeNames);
+                    tempChildren.push(...currentLevelChildrenOfNode);
                 }
                 if (tempChildren.length == 0) {
                     break;
@@ -43,8 +43,14 @@ class IntentNodeFinder {
             throw new EvalError("Intent not found! Check the spelling and make sure not to enter the '#' symbol before the name");
         }
         else {
-            return nodeArray;
+            // return nodeArray;
+            return this.getNamesOfNodes(nodeArray);
         }
+    }
+    getNamesOfNodes(nodeIds){
+        return nodeIds.map(node => {
+            return node.hasOwnProperty('dialog_node') ? node.hasOwnProperty('title') ? node['dialog_node'] + " - " +  node["title"] : node['dialog_node'] : node['title']
+        });
     }
 }
 

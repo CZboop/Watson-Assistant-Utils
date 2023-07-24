@@ -1,4 +1,4 @@
-const NodeIntentFinder = require('../utils/nodeIntentFinder.cjs');
+import NodeIntentFinder from './nodeIntentFinder.js';
 
 test('can find the intent of a node if it is the root node for the intent', () => {
   const testSkill = {"name": "test skill", "intents": [], "dialog_nodes": [

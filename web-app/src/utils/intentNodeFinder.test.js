@@ -1,6 +1,6 @@
-const nodeFinder = require('../utils/intentNodeFinder.cjs');
+import nodeFinder from './intentNodeFinder.js';
 
-test('can find the single node of an intent that has no child nodes', () => {
+test('can find the single node of an intent that has no child nodes (id and/or title where relevant)', () => {
     const testSkill = {"name": "test skill", "intents": [], "dialog_nodes": [
         {
             "type": "event_handler",
@@ -30,7 +30,7 @@ test('can find the single node of an intent that has no child nodes', () => {
             "event_name": "generic",
             "dialog_node": "handler_3_1501275087289"
           }]};
-    expect(new nodeFinder(testSkill, 'Help').findAllNodes()).toEqual(["handler_3_1501275087289"]);
+    expect(new nodeFinder(testSkill, 'Help').findAllNodes()).toEqual(["handler_3_1501275087289 - handler_3_1501275087289"]);
 })
 
 test('can handle intent not being found', () => {
@@ -66,7 +66,7 @@ test('can handle intent not being found', () => {
     expect(() => {new nodeFinder(testSkill, 'Helping').findAllNodes()}).toThrow(EvalError);
 })
 
-test('can find all nodes of intent, including parent, with one level of child nodes', () => {
+test('can find all nodes of intent, including parent, with one level of child nodes (title and/or id where relevant)', () => {
   const testSkill = {"name": "test skill", "intents": [], "dialog_nodes": [
       {
         "type": "standard",
@@ -128,10 +128,10 @@ test('can find all nodes of intent, including parent, with one level of child no
         "conditions": "true",
         "dialog_node": "node_3212"
       }]};
-  expect(new nodeFinder(testSkill, 'Directions').findAllNodes().sort()).toEqual(["node_3212", "node_321", "node_123"].sort());
+  expect(new nodeFinder(testSkill, 'Directions').findAllNodes().sort()).toEqual(["node_3212 - Provide location - option 2", "node_321 - Provide location", "node_123 - Directions parent node"].sort());
 })
 
-test('can find all nodes of intent with two levels of child nodes', () => {
+test('can find all nodes of intent with two levels of child nodes (id and/or title where relevant)', () => {
   const testSkill = {"name": "test skill", "intents": [], "dialog_nodes": [
     {
       "type": "standard",
@@ -233,7 +233,7 @@ test('can find all nodes of intent with two levels of child nodes', () => {
       "conditions": "true",
       "dialog_node": "node_3212100"
     }]};
-  expect(new nodeFinder(testSkill, 'Directions').findAllNodes().sort()).toEqual(["node_3212", "node_321", "node_123", "node_3212100", "node_3212001"].sort());
+  expect(new nodeFinder(testSkill, 'Directions').findAllNodes().sort()).toEqual(["node_3212 - Provide location - option 2", "node_321 - Provide location", "node_123 - Directions parent node", "node_3212100 - Provide location - child node", "node_3212001 - Provide location - child node 2"].sort());
 })
 
 // test('', () => {

@@ -1,4 +1,5 @@
-const JumpToFinder = require('../utils/jumpToFinder.cjs');
+import JumpToFinder from './jumpToFinder.js';
+import IntentNodeFinder from './intentNodeFinder.js';
 
 test('can handle nothing jumping to the node under test', () => {
     const testSkill = {"name": "test skill", "intents": [], "dialog_nodes": [
@@ -30,7 +31,7 @@ test('can handle nothing jumping to the node under test', () => {
             "event_name": "generic",
             "dialog_node": "handler_3_1501275087289"
           }]};
-    expect(new JumpToFinder(testSkill, node = "handler_3_1501275087289", intent = null).findNodeJumpTos()).toEqual([]);
+    expect(new JumpToFinder(testSkill, "handler_3_1501275087289", null).findNodeJumpTos()).toEqual([]);
 })
 
 test('can return single node jumping to the node under test', () => {
@@ -75,7 +76,7 @@ test('can return single node jumping to the node under test', () => {
             "conditions": "true",
             "dialog_node": "node_123"
           }]};
-    expect(new JumpToFinder(testSkill, node = "node_3_1522439390442", intent = null).findJumpTos()).toEqual(["node_123"]);
+    expect(new JumpToFinder(testSkill, "node_3_1522439390442", null).findJumpTos()).toEqual(["node_123 - Provide location"]);
 })
 
 test('throws error if no node or intent is provided in the intial constructor', () => {
@@ -130,7 +131,7 @@ test('can handle nothing jumping to an intent under test', () => {
             "conditions": "#Directions",
             "dialog_node": "node_123"
           }]};
-    expect(new JumpToFinder(testSkill, node = null, intent = "Directions").findJumpTos()).toEqual([]);
+    expect(new JumpToFinder(testSkill, null, "Directions").findJumpTos()).toEqual([]);
 })
 
 test('can return one node jumping to an intent under test', () => {
@@ -175,7 +176,7 @@ test('can return one node jumping to an intent under test', () => {
             "conditions": "#Directions",
             "dialog_node": "node_123"
           }]};
-    expect(new JumpToFinder(testSkill, node = null, intent = "Directions").findJumpTos()).toEqual(["node_3_1522439390442"]);
+    expect(new JumpToFinder(testSkill, null, "Directions").findJumpTos()).toEqual(["node_3_1522439390442 - Provide location"]);
   })
 
   test('can return multiple nodes jumping to one intent under test', () => {
@@ -239,7 +240,7 @@ test('can return one node jumping to an intent under test', () => {
             "conditions": "#Directions",
             "dialog_node": "node_123"
           }]};
-    expect(new JumpToFinder(testSkill, node = null, intent = "Directions").findJumpTos().sort()).toEqual(["node_3_1522439390442","node_3_2222439390445"].sort());
+    expect(new JumpToFinder(testSkill, null, "Directions").findJumpTos().sort()).toEqual(["node_3_1522439390442 - Provide location","node_3_2222439390445 - Provide location 2"].sort());
   })
 
   test('can return multiple nodes jumping to one node under test', () => {
@@ -303,7 +304,7 @@ test('can return one node jumping to an intent under test', () => {
             "conditions": "#Directions",
             "dialog_node": "node_123"
           }]};
-    expect(new JumpToFinder(testSkill, node = "node_123", intent = null).findJumpTos().sort()).toEqual(["node_3_1522439390442","node_3_2222439390445"].sort());
+    expect(new JumpToFinder(testSkill, "node_123", null).findJumpTos().sort()).toEqual(["node_3_1522439390442 - Provide location","node_3_2222439390445 - Provide location 2"].sort());
   })
 
 // test('', () => {
