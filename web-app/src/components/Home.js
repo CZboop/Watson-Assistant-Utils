@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 function Home() {
   return (
     <div className='Home PageContainer'>
-      <h2>Watson Assistant Utils</h2>
+      <h2 id="page-header">Watson Assistant Utils</h2>
       <p>Welcome! This is a page hosting some simple tools to help speed up tedious tasks in IBM Watson Assistant.</p>
       <h4>The Tools</h4>
       <ul>

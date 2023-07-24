@@ -50,7 +50,7 @@ function FindIntentNode() {
 
   return (
     <div className="FindIntentNode PageContainer">
-        <h2>Intent Node Finder</h2>
+        <h2 id="page-header">Intent Node Finder</h2>
         <p>{storedSkill == null ? 'Please upload a JSON file of a Watson Assistant dialogue skill' : `Skill stored: ${JSON.parse(storedSkill).name}`}</p>
         {
             !storedSkill?

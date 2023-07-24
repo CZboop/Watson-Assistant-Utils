@@ -1,6 +1,8 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import {render, screen} from '@testing-library/react'
+import {createRoot} from 'react-dom/client';
+import {act} from 'react-dom/test-utils';
 import userEvent from '@testing-library/user-event';
 import '@testing-library/jest-dom';
 import App from './App';
@@ -8,46 +10,65 @@ import App from './App';
 // TODO: test render and navigation
 
 it('App component renders without crashing', () => {
-    const div = document.createElement('div');
-    ReactDOM.render(<App/>, div);
+    // const div = document.createElement('div');
+    // ReactDOM.render(<App/>, div);
+    const component = <App />;
+    const container = document.createElement('div');
+    document.body.appendChild(container);
+    const root = createRoot(container);
+    act(() => root.render(component));
   });
   
 // testing navigation
 test('Initially loads home page', async () => {
-    const div = document.createElement('div');
-    render(<App />, div);
-    const user = userEvent.setup();
+    const component = <App />;
+    const container = document.createElement('div');
+    document.body.appendChild(container);
+    const root = createRoot(container);
+    act(() => root.render(component));
 
     // verify home page content
-    expect(screen.getByText(/Welcome! This is a page hosting some simple tools/i)).toBeInTheDocument();
+    expect(document.querySelector("#page-header").textContent).toEqual("Watson Assistant Utils");
 })
 
 // verify jump to finder link and resulting page header
 test('Able to navigate to jump to finder', async () => {
-    const div = document.createElement('div');
-    render(<App />, div);
+    const component = <App />;
+    const container = document.createElement('div');
+    document.body.appendChild(container);
+    const root = createRoot(container);
+    act(() => root.render(component));
+
     const user = userEvent.setup();
-    await user.click(screen.getByRole('link', { name: 'Jump-To Finder' }));
-    expect(screen.getByRole("heading", { level: 2 }).textContent).toEqual("Jump-To Finder");
+    await user.click(document.querySelector("#nav_jump-finder"));
+    expect(document.querySelector("#page-header").textContent).toEqual("Jump-To Finder");
 })
 
 
 // verify node intent finder link and resulting page header
 test('Able to navigate to node intent finder', async () => {
-    const div = document.createElement('div');
-    render(<App />, div);
+    const component = <App />;
+    const container = document.createElement('div');
+    document.body.appendChild(container);
+    const root = createRoot(container);
+    act(() => root.render(component));
+
     const user = userEvent.setup();
-    await user.click(screen.getByRole('link', { name: 'Node Intent Finder' }));
-    expect(screen.getByRole("heading", { level: 2 }).textContent).toEqual("Node Intent Finder");
+    await user.click(document.querySelector("#nav_intent-finder"));
+    expect(document.querySelector("#page-header").textContent).toEqual("Node Intent Finder");
 })
 
 // verify intent node finder link and resulting page header
 test('Able to navigate to intent node finder', async () => {
-    const div = document.createElement('div');
-    render(<App />, div);
+    const component = <App />;
+    const container = document.createElement('div');
+    document.body.appendChild(container);
+    const root = createRoot(container);
+    act(() => root.render(component));
+
     const user = userEvent.setup();
-    await user.click(screen.getByRole('link', { name: 'Intent Node Finder' }));
-    expect(screen.getByRole("heading", { level: 2 }).textContent).toEqual("Intent Node Finder");
+    await user.click(document.querySelector("#nav_node-finder"));
+    expect(document.querySelector("#page-header").textContent).toEqual("Intent Node Finder");
 })
 
 // test('', () => {
