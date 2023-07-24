@@ -7,8 +7,8 @@ on:
 
 jobs:
 
-  test_utils:
-    name: Testing Utils
+  test_app:
+    name: Testing Utils and React App
     runs-on: ubuntu-latest
 
     strategy:
@@ -16,20 +16,11 @@ jobs:
         node-version: [15.x]
 
     steps:
+        - name: Checkout
+          uses: actions/checkout@v3
+          
         - name: Run tests
-          run: cd web-app && cd src && cd utils && npm test
-
-  test_react:
-    name: Testing React App
-    runs-on: ubuntu-latest
-
-    strategy:
-      matrix:
-        node-version: [15.x]
-
-    steps:
-        - name: Run tests
-          run: cd web-app && cd src && npm test
+          run: cd web-app && npm test
 
   deploy_react:
     name: Deploy React app

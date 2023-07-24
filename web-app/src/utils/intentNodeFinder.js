@@ -13,12 +13,12 @@ class IntentNodeFinder {
         // TODO: account for using intentVar
         // TODO: account for multiple nodes using in entry condition?
         const dialog_nodes = this.skill['dialog_nodes']
-        const rootNode = dialog_nodes.filter(node => node['conditions'] == `#${this.intentName}`)[0];
+        const rootNode = dialog_nodes.filter(node => node['conditions'] === `#${this.intentName}`)[0];
         // note all nodes have dialog_node property, getting title if not to compare against parent of other nodes
         if (rootNode){
             const rootNodeName = rootNode.hasOwnProperty('dialog_node') ? rootNode['dialog_node']: rootNode['title'];
             nodeArray.push(rootNode);
-            const levelOneChildren = dialog_nodes.filter(node => node.parent == rootNodeName);
+            const levelOneChildren = dialog_nodes.filter(node => node.parent === rootNodeName);
             const levelOneChildrenNames = levelOneChildren.map(node => node.hasOwnProperty('dialog_node') ? node['dialog_node']: node['title']);
             nodeArray.push(...levelOneChildren);
             // looping until no more children
@@ -28,11 +28,11 @@ class IntentNodeFinder {
             while (true) {
                 let tempChildren = [];
                 for (let child of currentLevelChildren) {
-                    let currentLevelChildrenOfNode = dialog_nodes.filter(node => node.parent == child);
-                    let currentLevelChildrenOfNodeNames = currentLevelChildrenOfNode.map(node => node.hasOwnProperty('dialog_node') ? node['dialog_node']: node['title']);
+                    let currentLevelChildrenOfNode = dialog_nodes.filter(node => node.parent === child);
+                    // let currentLevelChildrenOfNodeNames = currentLevelChildrenOfNode.map(node => node.hasOwnProperty('dialog_node') ? node['dialog_node']: node['title']);
                     tempChildren.push(...currentLevelChildrenOfNode);
                 }
-                if (tempChildren.length == 0) {
+                if (tempChildren.length === 0) {
                     break;
                 }
                 nodeArray.push(...tempChildren);
