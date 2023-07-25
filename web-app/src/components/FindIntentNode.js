@@ -25,12 +25,16 @@ function FindIntentNode() {
         }
         else {
             const intentNodeFinder = new IntentNodeFinder(JSON.parse(storedSkill), intentName);
-            const listOfNodes = intentNodeFinder.findAllNodes();
-        setNodeList(listOfNodes.map(node => {
-            return <li key={node}>{node}</li>
-        }));
+            try{
+                const listOfNodes = intentNodeFinder.findAllNodes();
+                setNodeList(listOfNodes.map(node => {
+                    return <li key={node}>{node}</li>
+                }));
+            }
+            catch {
+                alert("No intent found with that name! Please select one of the given options.")
+            }
         }
-        
     }
 
     const handleIntentSwitch = () => {
@@ -60,10 +64,10 @@ function FindIntentNode() {
             {
                 nodeList.length === 0 ?
                 <form onSubmit={handleIntentSubmission} className="form-intent">
-                <p>Select or start typing the intent whose nodes you want to see:</p>
+                <label htmlFor="intent-options">Select or start typing the intent whose nodes you want to see:</label>
             <div className="intent-options" value={intentName} onChange={handleIntentNameChange}>
-                <input list="optionData"/>
-                <datalist id="optionData" >
+                <input list="optionData" id="intent-options"/>
+                <datalist id="optionData" title="optionDataList">
                     {/* <option >--~*'Select Intent'*~--</option> */}
                     {intentOptions}
                 </datalist>
@@ -72,11 +76,11 @@ function FindIntentNode() {
             </form>
                 :
                 <div>
-                <h4>Nodes in Intent - {intentName}</h4>
+                <h4 className="intent-node-list">Nodes in Intent - {intentName}</h4>
                 <ul>
                     {nodeList}
                 </ul>
-                <button onClick={handleIntentSwitch} className="submit-button">Switch Intent</button>
+                <button onClick={handleIntentSwitch} className="submit-button" id="switch-intent">Switch Intent</button>
                 </div>
 
             }
