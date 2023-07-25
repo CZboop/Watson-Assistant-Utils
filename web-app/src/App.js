@@ -5,7 +5,6 @@ import Home from './components/Home';
 import FindNodeIntent from './components/FindNodeIntent';
 import FindIntentNode from './components/FindIntentNode';
 import FindJumpTos from './components/FindJumpTos';
-import {useState, useEffect} from 'react';
 
 function App() {
 

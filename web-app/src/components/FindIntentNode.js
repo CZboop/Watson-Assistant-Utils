@@ -20,7 +20,7 @@ function FindIntentNode() {
     const handleIntentSubmission = (e) => {
         e.preventDefault();
         // console.log(intentName)
-        if (intentName == ""){
+        if (intentName === ""){
             alert("Please select an intent!")
         }
         else {

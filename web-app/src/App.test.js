@@ -1,17 +1,11 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
-import {render, screen} from '@testing-library/react'
 import {createRoot} from 'react-dom/client';
-import {act} from 'react-dom/test-utils';
+import {act} from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 import '@testing-library/jest-dom';
 import App from './App';
 
-// TODO: test render and navigation
-
 it('App component renders without crashing', () => {
-    // const div = document.createElement('div');
-    // ReactDOM.render(<App/>, div);
     const component = <App />;
     const container = document.createElement('div');
     document.body.appendChild(container);

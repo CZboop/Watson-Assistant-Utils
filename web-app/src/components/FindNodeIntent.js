@@ -21,7 +21,7 @@ function FindNodeIntent() {
 
     const handleNodeSubmission = (e) => {
         e.preventDefault();
-        if (nodeName == "") {
+        if (nodeName === "") {
             alert("Please select a node!")
         }
         else {

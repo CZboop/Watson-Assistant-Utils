@@ -35,16 +35,16 @@ function FindJumpTos() {
 
     const handleFormSubmission = (e) => {
         e.preventDefault();
-        if ((nodeName == "" && nodeOrIntent == "node") || (intentName == "" && nodeOrIntent == "intent")) {
-            alert(nodeOrIntent == "node" ? "Please select a node!" : "Please select an intent!")
+        if ((nodeName === "" && nodeOrIntent === "node") || (intentName === "" && nodeOrIntent === "intent")) {
+            alert(nodeOrIntent === "node" ? "Please select a node!" : "Please select an intent!")
         }
         else {
-            if (nodeOrIntent == "intent"){
+            if (nodeOrIntent === "intent"){
                 const jumpToFinder = new JumpToFinder(JSON.parse(storedSkill), null, intentName);
                 const jumpTosFound = jumpToFinder.findJumpTos();
                 setJumpTos(jumpTosFound);
                 // console.log(jumpTosFound);
-                if (jumpTosFound.length == 0) {
+                if (jumpTosFound.length === 0) {
                     alert(`No nodes jumping to intent - ${intentName}!`);
                 }
                 setIntentName("");
@@ -56,7 +56,7 @@ function FindJumpTos() {
                     return <li key={jumpTo}>{jumpTo}</li>
                 }));
                 // console.log(jumpTosFound);
-                if (jumpTosFound.length == 0) {
+                if (jumpTosFound.length === 0) {
                     alert(`No nodes jumping to node - ${nodeName}!`);
                 }
                 setNodeName("");
@@ -65,7 +65,7 @@ function FindJumpTos() {
     }
 
     const handleTypeToggle = (e) => {
-        if (nodeOrIntent == "intent"){
+        if (nodeOrIntent === "intent"){
             setIntentChecked(false)
             setNodeChecked(true)
             setNodeOrIntent("node");
@@ -103,7 +103,7 @@ function FindJumpTos() {
             :
             <div>            
             {
-                jumpTos.length == 0 ?
+                jumpTos.length === 0 ?
                 <form onSubmit={handleFormSubmission} className="form-intent">
                     <div className="type-toggle" >
                     <input type="radio" id="type-toggle-intent" name="type" value="intent" checked={intentChecked} onChange={handleTypeToggle}/>
@@ -144,7 +144,7 @@ function FindJumpTos() {
             </form>
                 :
                 <div>
-                <h4>Jump Tos - {nodeOrIntent == "node" ? nodeName : intentName}</h4>
+                <h4>Jump Tos - {nodeOrIntent === "node" ? nodeName : intentName}</h4>
                 <ul>
                     {jumpTos}
                 </ul>

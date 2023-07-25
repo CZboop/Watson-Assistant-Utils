@@ -13,7 +13,7 @@ function FileUploader() {
         const fileReader = new FileReader();
         fileReader.readAsText(e.target.files[0], "UTF-8");
         let fileName = e.target.files[0].name;
-        console.log(fileName);
+        // console.log(fileName);
         fileReader.onload = e => {
             let fileUploaded = e.target.result;
             setFiles(fileUploaded);
@@ -21,7 +21,7 @@ function FileUploader() {
         };
     }
     useEffect(() => {
-        if (files != null && files != undefined){
+        if (files != null && files !== undefined){
         sessionStorage.setItem('files', files);
     }
     }, [files])
@@ -34,7 +34,7 @@ function FileUploader() {
             <label htmlFor="uploadFile" className="fileUploaderButton">Upload File<FontAwesomeIcon className="uploadIcon" icon={faUpload} /></label>
             {
                 fileName !== "" ?
-                <p>Selected File: {fileName}</p>
+                <p id='uploaded-file-label'>Selected File: {fileName}</p>
                 :
                 <p></p>
             }
