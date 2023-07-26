@@ -41,24 +41,36 @@ function FindJumpTos() {
         else {
             if (nodeOrIntent === "intent"){
                 const jumpToFinder = new JumpToFinder(JSON.parse(storedSkill), null, intentName);
-                const jumpTosFound = jumpToFinder.findJumpTos();
-                setJumpTos(jumpTosFound);
-                // console.log(jumpTosFound);
-                if (jumpTosFound.length === 0) {
-                    alert(`No nodes jumping to intent - ${intentName}!`);
+                try {
+                    const jumpTosFound = jumpToFinder.findJumpTos();
+                    setJumpTos(jumpTosFound);
+                    // console.log(jumpTosFound);
+                    if (jumpTosFound.length === 0) {
+                        alert(`No nodes jumping to intent - ${intentName}!`);
+                    }
                 }
+                catch {
+                    alert(`Invalid intent - no intent found named ${intentName}. Please select one of the options.`);
+                }
+                
                 setIntentName("");
             }
             else {
                 const jumpToFinder = new JumpToFinder(JSON.parse(storedSkill), nodeName, null);
-                const jumpTosFound = jumpToFinder.findJumpTos();
-                setJumpTos(jumpTosFound.map(jumpTo => {
-                    return <li key={jumpTo}>{jumpTo}</li>
-                }));
-                // console.log(jumpTosFound);
-                if (jumpTosFound.length === 0) {
-                    alert(`No nodes jumping to node - ${nodeName}!`);
+                try {
+                    const jumpTosFound = jumpToFinder.findJumpTos();
+                    setJumpTos(jumpTosFound.map(jumpTo => {
+                        return <li key={jumpTo}>{jumpTo}</li>
+                    }));
+                    // console.log(jumpTosFound);
+                    if (jumpTosFound.length === 0) {
+                        alert(`No nodes jumping to node - ${nodeName}!`);
+                    }
                 }
+                catch {
+                    alert(`Invalid node - no node found name ${nodeName}. Please select one of the options.`);
+                }
+                
                 setNodeName("");
             }
         }

@@ -1,7 +1,6 @@
 import React from 'react';
 import {createRoot} from 'react-dom/client';
 import {act, waitFor, waitForElementToBeRemoved} from '@testing-library/react';
-// import {  } from 'react-testing-library';
 import user from '@testing-library/user-event';
 import userEvent from '@testing-library/user-event';
 import '@testing-library/jest-dom';
