@@ -891,7 +891,6 @@ const testFileJSON = {
     "status": "Available"
   }
 
-
   test('Test submitting intent displays expected nodes in the intent', async () => {
     // given - set up fake session storage for the main undertest component to read from
     const sessionStorageSpy = jest.spyOn(window.sessionStorage, 'getItem');

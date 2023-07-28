@@ -156,7 +156,7 @@ function FindJumpTos() {
             </form>
                 :
                 <div>
-                <h4>Jump Tos - {nodeOrIntent === "node" ? nodeName : intentName}</h4>
+                <h4 id="result-list">Jump Tos - {nodeOrIntent === "node" ? nodeName : intentName}</h4>
                 <ul>
                     {jumpTos}
                 </ul>
