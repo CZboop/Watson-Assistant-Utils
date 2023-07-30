@@ -49,14 +49,13 @@
             "dialog_node": "node_123"
         }
       },
-      "parent": "Directions",
       "metadata": {},
       "next_step": {
           "behavior": "jump_to",
           "dialog_node": "node_3_1522439390442"
       },
       "conditions": "#Directions",
-      "dialog_node": "node_123"
+      "dialog_node": "Directions"
     },
     {
       "type": "standard",

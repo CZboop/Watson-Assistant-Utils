@@ -65,13 +65,15 @@ function FindJumpTos() {
                     // console.log(jumpTosFound);
                     if (jumpTosFound.length === 0) {
                         alert(`No nodes jumping to node - ${nodeName}!`);
+                        setNodeName("");
                     }
                 }
                 catch {
                     alert(`Invalid node - no node found name ${nodeName}. Please select one of the options.`);
+                    setNodeName("");
                 }
                 
-                setNodeName("");
+                
             }
         }
     }

@@ -34,9 +34,8 @@ function FindNodeIntent() {
             }
             catch {
                 alert(`Invalid input - no node found with the id ${nodeName}`);
+                setNodeName("");
             }
-            // TODO: catch another exception if no parent node? or adjust the main class to give top level parent with a message
-            
         }
     }
 
