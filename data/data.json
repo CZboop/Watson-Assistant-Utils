@@ -57,4 +57,51 @@
       },
       "conditions": "#Directions",
       "dialog_node": "node_123"
+    },
+    {
+      "type": "standard",
+      "title": "Entity parent",
+      "output": {
+        "text": {
+          "values": [
+            "To test if top level parent is an entity not intent"
+          ],
+          "selection_policy": "sequential"
+        },
+        "next_step": {
+            "behavior": "jump_to",
+            "dialog_node": "node_123"
+        }
+      },
+      "parent": "node_777",
+      "metadata": {},
+      "next_step": {
+          "behavior": "jump_to",
+          "dialog_node": "node_3_1522439390442"
+      },
+      "conditions": "",
+      "dialog_node": "node_123321"
+    },
+    {
+      "type": "standard",
+      "title": "An entity",
+      "output": {
+        "text": {
+          "values": [
+            "The entity parent"
+          ],
+          "selection_policy": "sequential"
+        },
+        "next_step": {
+            "behavior": "jump_to",
+            "dialog_node": "node_123"
+        }
+      },
+      "metadata": {},
+      "next_step": {
+          "behavior": "jump_to",
+          "dialog_node": "node_3_1522439390442"
+      },
+      "conditions": "@an_entity",
+      "dialog_node": "node_777"
     }]}

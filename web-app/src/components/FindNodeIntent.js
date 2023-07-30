@@ -25,11 +25,18 @@ function FindNodeIntent() {
             alert("Please select a node!")
         }
         else {
-            const nodeIntentFinder = new NodeIntentFinder(JSON.parse(storedSkill), nodeName);
-            // TODO: the main getIntent method does not work for slots or other types depending on their properties
-            // console.log(nodeName)
-            const intentOfNode = nodeIntentFinder.getIntent();
-            setNodeIntent(intentOfNode);
+            try {
+                const nodeIntentFinder = new NodeIntentFinder(JSON.parse(storedSkill), nodeName);
+                // TODO: the main getIntent method does not work for slots or other types depending on their properties
+                // console.log(nodeName)
+                const intentOfNode = nodeIntentFinder.getIntent();
+                setNodeIntent(intentOfNode);
+            }
+            catch {
+                alert(`Invalid input - no node found with the id ${nodeName}`);
+            }
+            // TODO: catch another exception if no parent node? or adjust the main class to give top level parent with a message
+            
         }
     }
 
@@ -62,7 +69,7 @@ function FindNodeIntent() {
                 <form onSubmit={handleNodeSubmission} className="form-intent">
                 <p>Select or start typing the node whose intent you want to see:</p>
             <div className="node-options" value={nodeName} onChange={handleNodeNameChange}>
-                <input list="optionData" onChange={handleNodeNameChange}/>
+                <input id="optionDataInput" list="optionData" onChange={handleNodeNameChange}/>
                     <datalist id="optionData" >
                     {/* <option >--~*'Select Node'*~--</option> */}
                     {nodeOptions}
@@ -72,9 +79,9 @@ function FindNodeIntent() {
             </form>
                 :
                 <div>
-                <h4>Intent For Node - {nodeName}</h4>
-                <p>{nodeIntent}</p>
-                <button onClick={handleNodeSwitch} className="submit-button">Switch Node</button>
+                <h4 id="result-heading">Intent/Entity/Parent For Node - {nodeName}</h4>
+                <p id="result-text">{nodeIntent}</p>
+                <button onClick={handleNodeSwitch} className="submit-button" id="switch-node">Switch Node</button>
                 </div>
 
             }
