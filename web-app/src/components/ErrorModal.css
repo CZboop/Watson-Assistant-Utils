@@ -1,0 +1,45 @@
+.error-modal {
+    width: 100vw;
+    height: 100vh;
+}
+
+.overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 99;
+    background-color: rgba(0, 0, 0, 0.6);
+}
+
+.modal-content {
+    /* width: 60%; */
+    background-color: rgba(201, 201, 201, 0.8);
+    z-index: 100;
+    padding: 1em;
+    border-radius: 10px;
+    border: 2px solid white;
+    transform: 'translate(-50%, -50%)';
+    position: fixed;
+    top: 50%;
+    left: 50%;
+}
+
+.modal-header {
+    display: flex;
+    justify-items: center;
+    align-items: center;
+}
+
+#exit-button {
+    background-color: rgba(201, 201, 201, 0.422);
+    padding: 0.3em;
+    color: white;
+    border: 1px solid white;
+    border-radius: 50%;
+    margin: 0.5em;
+    position: absolute;
+    top: 0;
+    right: 0;
+}

@@ -1,12 +1,20 @@
 import './App.css';
 import Navbar from './components/Navbar';
 import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom';
+import {useState} from 'react';
 import Home from './components/Home';
 import FindNodeIntent from './components/FindNodeIntent';
 import FindIntentNode from './components/FindIntentNode';
 import FindJumpTos from './components/FindJumpTos';
+import ErrorModal from './components/ErrorModal';
 
 function App() {
+  
+  const [modalOpen, setModalOpen] = useState(true);
+
+  const toggleModal = () => {
+      setModalOpen(!modalOpen);
+  }
 
   return (
     <div className="App">
@@ -23,6 +31,7 @@ function App() {
           </Routes>
         </BrowserRouter>
       </header>
+      <ErrorModal title={"Error!"} message={"Testing modal..."} toggleModal={toggleModal} modalOpen={modalOpen}/>
     </div>
   );
 }

@@ -36,7 +36,7 @@ class NodeIntentFinder {
     }
     // returning the full node from the name/reference to evaluate properties of parent nodes etc.
     getNodeFromName(name) {
-        return this.skill.dialog_nodes.filter(node => node.hasOwnProperty('dialog_node') ? node['dialog_node'] == name: node['title'] === name)[0];
+        return this.skill.dialog_nodes.filter(node => node.hasOwnProperty('dialog_node') ? node['dialog_node'] === name: node['title'] === name)[0];
     }
     isValid(){
         return this.skill.dialog_nodes.filter(node => node.dialog_node === this.node).length > 0;
