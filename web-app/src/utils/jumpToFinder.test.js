@@ -2,7 +2,9 @@ import JumpToFinder from './jumpToFinder.js';
 import IntentNodeFinder from './intentNodeFinder.js';
 
 test('can handle nothing jumping to the node under test', () => {
-    const testSkill = {"name": "test skill", "intents": [], "dialog_nodes": [
+    const testSkill = {"name": "test skill", "intents": [{
+      "intent": "Directions",
+      "examples": []}], "dialog_nodes": [
         {
             "type": "event_handler",
             "title": "handler_3_1501275087289",
@@ -35,7 +37,9 @@ test('can handle nothing jumping to the node under test', () => {
 })
 
 test('can return single node jumping to the node under test', () => {
-    const testSkill = {"name": "test skill", "intents": [], "dialog_nodes": [
+    const testSkill = {"name": "test skill", "intents": [{
+      "intent": "Directions",
+      "examples": []}], "dialog_nodes": [
         {
             "type": "standard",
             "title": "Provide location",
@@ -90,7 +94,10 @@ test('throws expected error message if no node or intent is provided in the inti
   })
 
 test('can handle nothing jumping to an intent under test', () => {
-    const testSkill = {"name": "test skill", "intents": [], "dialog_nodes": [
+    const testSkill = {"name": "test skill", "intents": [{
+      "intent": "Directions",
+      "examples": []}]
+      , "dialog_nodes": [
         {
             "type": "standard",
             "title": "Provide location",
@@ -135,7 +142,9 @@ test('can handle nothing jumping to an intent under test', () => {
 })
 
 test('can return one node jumping to an intent under test', () => {
-    const testSkill = {"name": "test skill", "intents": [], "dialog_nodes": [
+    const testSkill = {"name": "test skill", "intents": [{
+      "intent": "Directions",
+      "examples": []}], "dialog_nodes": [
         {
             "type": "standard",
             "title": "Provide location",
@@ -180,7 +189,9 @@ test('can return one node jumping to an intent under test', () => {
   })
 
   test('can return multiple nodes jumping to one intent under test', () => {
-    const testSkill = {"name": "test skill", "intents": [], "dialog_nodes": [
+    const testSkill = {"name": "test skill", "intents": [{
+      "intent": "Directions",
+      "examples": []}], "dialog_nodes": [
         {
             "type": "standard",
             "title": "Provide location",
@@ -244,7 +255,9 @@ test('can return one node jumping to an intent under test', () => {
   })
 
   test('can return multiple nodes jumping to one node under test', () => {
-    const testSkill = {"name": "test skill", "intents": [], "dialog_nodes": [
+    const testSkill = {"name": "test skill", "intents": [{
+      "intent": "Directions",
+      "examples": []}], "dialog_nodes": [
         {
             "type": "standard",
             "title": "Provide location",
