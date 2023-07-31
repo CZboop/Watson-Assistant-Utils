@@ -1,8 +1,10 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useContext } from 'react';
 import FileUploader from './FileUploader';
 import IntentNodeFinder from '../utils/intentNodeFinder.js';
+import { ModalContext } from '../App';
 
 function FindIntentNode() {
+    const modalContext = useContext(ModalContext);
     const [storedSkill, setStoredSkill] = useState(null);
     let skillIntents = (storedSkill === null || storedSkill === undefined) ? null :JSON.parse(storedSkill).intents.map(intent => intent["intent"])
     let intentOptions = !skillIntents ? null : skillIntents.map(intent => {
@@ -19,9 +21,10 @@ function FindIntentNode() {
 
     const handleIntentSubmission = (e) => {
         e.preventDefault();
-        // console.log(intentName)
         if (intentName === ""){
-            alert("Please select an intent!")
+            modalContext.setModalTitle("Error - No Input!");
+            modalContext.setModalMessage("Please enter or select a valid option in the input or from the dropdown")
+            modalContext.setModalOpen(true);
         }
         else {
             const intentNodeFinder = new IntentNodeFinder(JSON.parse(storedSkill), intentName);
@@ -32,7 +35,9 @@ function FindIntentNode() {
                 }));
             }
             catch {
-                alert("No intent found with that name! Please select one of the given options.")
+                modalContext.setModalTitle("Error - Intent Not Found!");
+                modalContext.setModalMessage("Please select or enter one of the given options")
+                modalContext.setModalOpen(true);
             }
         }
     }
@@ -66,7 +71,7 @@ function FindIntentNode() {
                 <form onSubmit={handleIntentSubmission} className="form-intent">
                 <label htmlFor="intent-options">Select or start typing the intent whose nodes you want to see:</label>
             <div className="intent-options" value={intentName} onChange={handleIntentNameChange}>
-                <input list="optionData" id="intent-options"/>
+                <input list="optionData" id="intent-options" className='data-list'/>
                 <datalist id="optionData" title="optionDataList">
                     {/* <option >--~*'Select Intent'*~--</option> */}
                     {intentOptions}

@@ -1,6 +1,7 @@
 .error-modal {
-    width: 100vw;
-    height: 100vh;
+    /* width: 100vw;
+    height: 100vh; */
+    /* TODO: might remove this was just setting height but was pushing other content down and don't need */
 }
 
 .overlay {
@@ -14,16 +15,19 @@
 }
 
 .modal-content {
-    /* width: 60%; */
-    background-color: rgba(201, 201, 201, 0.8);
-    z-index: 100;
+    width: 60%;
+    margin: auto;
+    margin-top: 25%;
+    /* margin-right: auto; */
+    background-color: rgba(168, 167, 167, 0.9);
+    z-index: 1000;
     padding: 1em;
     border-radius: 10px;
     border: 2px solid white;
     transform: 'translate(-50%, -50%)';
-    position: fixed;
-    top: 50%;
-    left: 50%;
+    /* position: fixed; */
+    /* top: 50%;
+    left: 50%; */
 }
 
 .modal-header {

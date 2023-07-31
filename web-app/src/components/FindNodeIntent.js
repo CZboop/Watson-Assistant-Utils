@@ -1,10 +1,10 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useContext } from 'react';
 import FileUploader from './FileUploader';
 import NodeIntentFinder from '../utils/nodeIntentFinder.js';
+import { ModalContext } from '../App';
 
 function FindNodeIntent() {
-    // TODO: change select dropdown to be a filtered search of nodes
-    // TODO: catch exception/handle where no intent found
+    const modalContext = useContext(ModalContext);
     const [storedSkill, setStoredSkill] = useState(null);
     let skillNodes = (storedSkill === null || storedSkill === undefined) ? null :JSON.parse(storedSkill).dialog_nodes.map(node => node);
     let nodeOptions = !skillNodes ? null : skillNodes.map(node => {
@@ -22,7 +22,10 @@ function FindNodeIntent() {
     const handleNodeSubmission = (e) => {
         e.preventDefault();
         if (nodeName === "") {
-            alert("Please select a node!")
+            modalContext.setModalTitle("Error - No Node Selected!");
+            modalContext.setModalMessage("Please enter or select a valid option in the input or from the dropdown")
+            modalContext.setModalOpen(true);
+            // alert("Please select a node!")
         }
         else {
             try {
@@ -33,7 +36,10 @@ function FindNodeIntent() {
                 setNodeIntent(intentOfNode);
             }
             catch {
-                alert(`Invalid input - no node found with the id ${nodeName}`);
+                modalContext.setModalTitle("Error - Node Not Found!");
+                modalContext.setModalMessage(`Invalid input - no node found with the id ${nodeName}. Please select one of the options.`)
+                modalContext.setModalOpen(true);
+                // alert(`Invalid input - no node found with the id ${nodeName}`);
                 setNodeName("");
             }
         }
@@ -66,9 +72,9 @@ function FindNodeIntent() {
             {
                 nodeIntent === "" ?
                 <form onSubmit={handleNodeSubmission} className="form-intent">
-                <p>Select or start typing the node whose intent you want to see:</p>
+                <label htmlFor="node-options">Select or start typing the node whose intent you want to see:</label>
             <div className="node-options" value={nodeName} onChange={handleNodeNameChange}>
-                <input id="optionDataInput" list="optionData" onChange={handleNodeNameChange}/>
+                <input id="optionDataInput" list="optionData" onChange={handleNodeNameChange} className='data-list'/>
                     <datalist id="optionData" >
                     {/* <option >--~*'Select Node'*~--</option> */}
                     {nodeOptions}
