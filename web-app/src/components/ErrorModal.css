@@ -1,9 +1,3 @@
-.error-modal {
-    /* width: 100vw;
-    height: 100vh; */
-    /* TODO: might remove this was just setting height but was pushing other content down and don't need */
-}
-
 .overlay {
     position: fixed;
     top: 0;
@@ -18,16 +12,14 @@
     width: 60%;
     margin: auto;
     margin-top: 25%;
-    /* margin-right: auto; */
-    background-color: rgba(168, 167, 167, 0.9);
+    color: white;
+    background: linear-gradient(-65deg, #7952eec9, #99067ec8);
     z-index: 1000;
     padding: 1em;
     border-radius: 10px;
     border: 2px solid white;
     transform: 'translate(-50%, -50%)';
-    /* position: fixed; */
-    /* top: 50%;
-    left: 50%; */
+    position: relative;
 }
 
 .modal-header {
@@ -37,13 +29,14 @@
 }
 
 #exit-button {
-    background-color: rgba(201, 201, 201, 0.422);
+    background-color: #7952ee;
     padding: 0.3em;
+    font-weight: 900;
     color: white;
-    border: 1px solid white;
+    border: 2px solid white;
     border-radius: 50%;
     margin: 0.5em;
     position: absolute;
-    top: 0;
-    right: 0;
+    top: -20px;
+    right: -20px;
 }

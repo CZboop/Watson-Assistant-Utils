@@ -15,9 +15,9 @@ function ErrorModal({modalOpen, modalTitle, modalMessage}) {
     <div className='error-modal'>
         <div className='overlay' onClick={() => closeModal()}>
             <div className='modal-content'>
-                <h2>{modalTitle}</h2>
+                <h2 id="modal-title">{modalTitle}</h2>
                 <button onClick={() => closeModal()} id='exit-button'>X</button>
-                <p>{modalMessage}</p>
+                <p id="modal-message">{modalMessage}</p>
             </div>
         </div>
     </div>
