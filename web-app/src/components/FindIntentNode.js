@@ -6,6 +6,8 @@ import { ModalContext } from '../App';
 function FindIntentNode() {
     const modalContext = useContext(ModalContext);
     const [storedSkill, setStoredSkill] = useState(null);
+    const [datalistValue, setDatalistValue] = useState("");
+
     let skillIntents = (storedSkill === null || storedSkill === undefined) ? null :JSON.parse(storedSkill).intents.map(intent => intent["intent"])
     let intentOptions = !skillIntents ? null : skillIntents.map(intent => {
         return (
@@ -43,6 +45,7 @@ function FindIntentNode() {
     }
 
     const handleIntentSwitch = () => {
+        setDatalistValue("");
         setIntentName("");
         setNodeList([]);
     }
@@ -71,7 +74,7 @@ function FindIntentNode() {
                 <form onSubmit={handleIntentSubmission} className="form-intent">
                 <label htmlFor="intent-options">Select or start typing the intent whose nodes you want to see:</label>
             <div className="intent-options" value={intentName} onChange={handleIntentNameChange}>
-                <input list="optionData" id="intent-options" className='data-list'/>
+                <input list="optionData" id="intent-options" className='data-list' value={datalistValue} onChange={(e) => setDatalistValue(e.target.value)}/>
                 <datalist id="optionData" title="optionDataList">
                     {/* <option >--~*'Select Intent'*~--</option> */}
                     {intentOptions}

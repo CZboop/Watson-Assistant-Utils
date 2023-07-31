@@ -11,7 +11,7 @@
 .modal-content {
     width: 60%;
     margin: auto;
-    margin-top: 25%;
+    margin-top: 10%;
     color: white;
     background: linear-gradient(-65deg, #7952eec9, #99067ec8);
     z-index: 1000;

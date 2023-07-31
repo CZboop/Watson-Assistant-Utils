@@ -74,7 +74,7 @@ function FindNodeIntent() {
                 <form onSubmit={handleNodeSubmission} className="form-intent">
                 <label htmlFor="node-options">Select or start typing the node whose intent you want to see:</label>
             <div className="node-options" value={nodeName} onChange={handleNodeNameChange}>
-                <input id="optionDataInput" list="optionData" onChange={handleNodeNameChange} className='data-list'/>
+                <input id="optionDataInput" list="optionData" value={nodeName} onChange={handleNodeNameChange} className='data-list'/>
                     <datalist id="optionData" >
                     {/* <option >--~*'Select Node'*~--</option> */}
                     {nodeOptions}
@@ -88,7 +88,6 @@ function FindNodeIntent() {
                 <p id="result-text">{nodeIntent}</p>
                 <button onClick={handleNodeSwitch} className="submit-button" id="switch-node">Switch Node</button>
                 </div>
-
             }
             <hr></hr>
             <button onClick={handleSkillSwitch}>Upload a different skill</button>
