@@ -1,0 +1,15 @@
+{
+  "files": {
+    "main.css": "/Watson-Assistant-Utils/static/css/main.b1055c00.css",
+    "main.js": "/Watson-Assistant-Utils/static/js/main.c1dc62b9.js",
+    "static/js/787.c6006e9a.chunk.js": "/Watson-Assistant-Utils/static/js/787.c6006e9a.chunk.js",
+    "index.html": "/Watson-Assistant-Utils/index.html",
+    "main.b1055c00.css.map": "/Watson-Assistant-Utils/static/css/main.b1055c00.css.map",
+    "main.c1dc62b9.js.map": "/Watson-Assistant-Utils/static/js/main.c1dc62b9.js.map",
+    "787.c6006e9a.chunk.js.map": "/Watson-Assistant-Utils/static/js/787.c6006e9a.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.b1055c00.css",
+    "static/js/main.c1dc62b9.js"
+  ]
+}
