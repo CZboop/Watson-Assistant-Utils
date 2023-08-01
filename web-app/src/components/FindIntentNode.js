@@ -93,7 +93,7 @@ function FindIntentNode() {
 
             }
             <hr></hr>
-            <button onClick={handleSkillSwitch}>Upload a different skill</button>
+            <button onClick={handleSkillSwitch} className='submit-button'>Upload a different skill</button>
             </div>
         }
     </div>
