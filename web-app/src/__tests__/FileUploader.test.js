@@ -3,7 +3,7 @@ import {createRoot} from 'react-dom/client';
 import {act, waitFor} from '@testing-library/react';
 import user from '@testing-library/user-event';
 import '@testing-library/jest-dom';
-import FileUploader from './FileUploader';
+import FileUploader from '../components/FileUploader';
 import {screen} from '@testing-library/react';
 
 // NOTE: not much to test, can rely on default uploader working and state being changed once onchange is triggered (confirmed by the below test)

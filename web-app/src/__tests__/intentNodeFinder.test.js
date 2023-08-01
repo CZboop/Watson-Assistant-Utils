@@ -1,4 +1,4 @@
-import nodeFinder from './intentNodeFinder.js';
+import nodeFinder from '../utils/intentNodeFinder.js';
 
 test('can find the single node of an intent that has no child nodes (id and/or title where relevant)', () => {
     const testSkill = {"name": "test skill", "intents": [], "dialog_nodes": [

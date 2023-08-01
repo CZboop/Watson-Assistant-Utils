@@ -3,7 +3,7 @@ import {createRoot} from 'react-dom/client';
 import {act} from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 import '@testing-library/jest-dom';
-import App from './App';
+import App from '../App.js';
 
 it('App component renders without crashing', () => {
     const component = <App />;
