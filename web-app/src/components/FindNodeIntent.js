@@ -30,8 +30,6 @@ function FindNodeIntent() {
         else {
             try {
                 const nodeIntentFinder = new NodeIntentFinder(JSON.parse(storedSkill), nodeName);
-                // TODO: the main getIntent method does not work for slots or other types depending on their properties
-                // console.log(nodeName)
                 const intentOfNode = nodeIntentFinder.getIntent();
                 setNodeIntent(intentOfNode);
             }

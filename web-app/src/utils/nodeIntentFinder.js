@@ -14,9 +14,9 @@ class NodeIntentFinder {
         const intentFormatted = this.intentVar ? `$${this.intentVar}`: '#'; // ternary for if intentVar or directly from the #intent
         // go through parent nodes until find and intent in entry condition or no more parents
         const startNode = this.skill.dialog_nodes.filter(node => node.hasOwnProperty('dialog_node') ? node['dialog_node'] === this.node: node['title'] === this.node)[0];
-        // TODO: handle list of conditions above
+        // if either already has an intent condition or has no parent
         if (startNode.hasOwnProperty("conditions")){
-            if (startNode.conditions.startsWith(intentFormatted)) {
+            if (startNode.conditions.startsWith(intentFormatted) || !startNode.hasOwnProperty("parent")) {
                 // TODO: decode the formatting before returning
                 return startNode.conditions;
             }
