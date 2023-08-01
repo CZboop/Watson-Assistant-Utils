@@ -1,5 +1,4 @@
 import JumpToFinder from '../utils/jumpToFinder.js';
-import IntentNodeFinder from '../utils/intentNodeFinder.js';
 
 test('can handle nothing jumping to the node under test', () => {
     const testSkill = {"name": "test skill", "intents": [{

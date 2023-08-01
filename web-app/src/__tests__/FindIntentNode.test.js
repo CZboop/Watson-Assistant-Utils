@@ -1,14 +1,12 @@
 import React from 'react';
 import {createRoot} from 'react-dom/client';
-import {act, waitFor, waitForElementToBeRemoved} from '@testing-library/react';
+import {act} from '@testing-library/react';
 import user from '@testing-library/user-event';
-import userEvent from '@testing-library/user-event';
 import '@testing-library/jest-dom';
 import FindIntentNode from '../components/FindIntentNode';
 import {screen} from '@testing-library/react';
 import { cleanup } from '@testing-library/react'
-import data from '../../../data/data.json';
-import sample_skill from '../../../data/sample_skill.json';
+import sample_skill from '../sample_jsons/sample_skill.json';
 
 const sessionStorageMock = (() => {
     let store = {};
