@@ -31,7 +31,9 @@ function FileUploader() {
         <h3>Upload JSON File</h3>
         <div className='UploadForm'>
             <input className="FileInput" type="file" name="FileInput" onChange={handleFile} id="uploadFile"/>
+            <div className='uploadButtonContainer'>
             <label htmlFor="uploadFile" className="fileUploaderButton">Upload File<FontAwesomeIcon className="uploadIcon" icon={faUpload} /></label>
+            </div>
             {
                 fileName !== "" ?
                 <p id='uploaded-file-label'>Selected File: {fileName}</p>

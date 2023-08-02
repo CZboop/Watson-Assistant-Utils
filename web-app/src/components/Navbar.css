@@ -8,6 +8,11 @@
     box-shadow: inset 0 0 40px rgba(200, 116, 221, 0.5);
     border-radius: 10px;
 }
+
+.navbar__title {
+    font-size: xx-large;
+}
+
 a {
     text-decoration: none;
     color: whitesmoke;
@@ -21,9 +26,99 @@ button {
     font-weight: 1000;
     font-family: 'Gruppo', sans-serif;
 }
+
 h1 {
     padding-right: 1em;
     padding-top: none;
     padding-bottom: none;
     margin: 0px;
+}
+
+.burger {
+    display: none;
+}
+
+@media screen and (max-width: 650px) {
+    h1 {
+        padding: 0.35em;
+        padding-left: 0.6em;
+        width: 80%;
+    }
+    .Navbar {
+        width: 100%;
+        border-radius: 10px;
+        height: fit-content;
+        overflow: hidden;
+        box-sizing: border-box;
+        padding: 0;
+        padding-bottom: 0.5em;
+        margin-bottom: 0;
+    }
+    .Navbar-title {
+        width: 75%;
+        padding: 0.5em;
+        display: flex;
+        align-content: center;
+    }
+    .Navbar button {
+        display: none;
+        width: 100%;
+        margin: 0;
+    }
+    .Navbar-open button {
+        border: 1px solid white;
+    }
+    .navbar__links button:hover {
+        background-color: rgba(255, 255, 255, 0.266);
+    }
+    .content {
+        padding: none;
+    }
+    .Navbar-open {
+        display: block;
+        width: 100%;
+        padding: none;
+    }
+    .Navbar-open button {
+        display: block;
+        font-size: 1em;
+        width: 100%;
+        color: white;
+        padding-top: 0.25em;
+        padding-bottom: 0.25em;
+    }
+    .Navbar-open .burger-toggle {
+        display: block;
+    }
+    .Navbar-open {
+        display: block;
+    }
+    .Navbar .burger {
+        position: absolute;
+        display: block;
+        top: 2.5em;
+        bottom: auto;
+        right: 2em;
+        cursor: pointer;
+        background: unset;
+        width: 15%;
+    }
+    .Navbar .burger svg {
+        stroke: white;
+    }
+    .Navbar button {
+        border: none;
+    }
+    #close-button {
+        display: none;
+    }
+    .burger-open #open-button {
+        display: none;
+    }
+    .burger-open #close-button {
+        display: block;
+    }
+    nav {
+        height: fit-content;
+    }
 }
