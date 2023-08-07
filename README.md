@@ -5,6 +5,8 @@ Uses basic built in JavaScript functions to filter and traverse the nodes within
 
 Deployed via Github Actions pipeline on [GitHub Pages](https://CZboop.github.io/Watson-Assistant-Utils)
 
+**Note: There is currently an issue with the GH Pages version of the app, where after a form submit it will throw a 404 error. This issue does not occur with cloning and running a local version, which is recommended for actual use. How to do this is outlined in the Install and Run heading below. The GH Pages issue can also be bypassed by going back to the homepage '/Watson-Assistant-Utils' and refreshing, but this does get impractical**
+
 ## Tools/Functionality
 * Jump-To Finder - Get a list of nodes that are jumping to either a single node or any node in an intent. May be useful to check before deleting something
 * Node Intent Finder - Quickly check which intent a node sits under
